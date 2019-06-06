@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/drawable_background_login"
+    android:orientation="vertical"
+    tools:context=".br.com.clearsys.professorama.novoAluno.CadastroNovoAluno">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textSize="25dp"
+        android:textAlignment="center"
+        android:text="@string/informacaoTela"
+        android:textColor="@color/colorBotaoCadastrar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp">
+
+        <EditText
+            android:id="@+id/nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:inputType="textPersonName"
+            android:hint="@string/nomeAluno"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            android:backgroundTint="@color/colorBotaoCadastrar"
+            android:textCursorDrawable="@drawable/my_cursor"/>
+
+        <EditText
+            android:id="@+id/serie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:inputType="textPersonName"
+            android:hint="@string/serieAluno"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            android:backgroundTint="@color/colorBotaoCadastrar"
+            android:textCursorDrawable="@drawable/my_cursor"/>
+
+        <TextView
+            android:id="@+id/perfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"
+            android:textColor="@color/colorBotaoCadastrar"
+            android:inputType="textPersonName"
+            android:text="@string/perfilAluno"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            android:backgroundTint="@color/colorBotaoCadastrar"
+            android:textCursorDrawable="@drawable/my_cursor"/>
+
+
+        <EditText
+            android:id="@+id/usuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:inputType="textPersonName"
+            android:hint="@string/userAluno"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            android:backgroundTint="@color/colorBotaoCadastrar"
+            android:textCursorDrawable="@drawable/my_cursor"/>
+
+        <EditText
+            android:id="@+id/senha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:inputType="textVisiblePassword"
+            android:hint="@string/passwordAluno"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            android:backgroundTint="@color/colorBotaoCadastrar"
+            android:textCursorDrawable="@drawable/my_cursor"/>
+
+        <Button
+            android:id="@+id/btnCadastraNovoAluno"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:text="@string/cadastrarAluno"
+            android:textColor="@color/colorBotaoCadastrar"
+            android:background="@drawable/custom_buttons"/>
+
+    </LinearLayout>
+
+</LinearLayout>

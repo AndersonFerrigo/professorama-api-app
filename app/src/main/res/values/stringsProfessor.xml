@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Textos dos botões e EditTexts -->
+    <string name="home"> home</string>
+    <string name="novaTarefa"> Nova atividade</string>
+    <string name="tarefasAgendadas">Atividades Agendadas</string>
+    <string name="cronometro">Cronometro</string>
+
+</resources>

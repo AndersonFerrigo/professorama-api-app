@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Informações da tela de cadastro de aluno  -->
+
+    <!-- Textos dos botões e EditTexts -->
+    <string name="informacaoTela"> Cadastro Aluno</string>
+    <string name="nomeAluno"> Nome completo</string>
+    <string name="perfilAluno">Aluno</string>
+    <string name="serieAluno">Serie</string>
+    <string name="userAluno">Usuario</string>
+    <string name="passwordAluno">Senha</string>
+    <string name="cadastrarAluno">Cadastrar</string>
+
+</resources>

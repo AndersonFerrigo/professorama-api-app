@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorIndigo700Background">#303F9F</color>
+    <color name="colorIndigo400Background">#5C6BC0</color>
+    <color name="colorIndigo100Background">#C5CAE9</color>
+    <color name="colorBotaoCadastrar">#FFFFFF </color>
+
+
+</resources>

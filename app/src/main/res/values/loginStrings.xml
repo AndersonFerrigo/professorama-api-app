@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Informações da tela de login  -->
+
+    <!-- Textos dos botões e EditTexts -->
+
+    <string name="user">Usuario</string>
+    <string name="password">Senha</string>
+    <string name="cadastrarNovoAluno"> Primeiro acesso , clique aqui!</string>
+    <string name="acessarSistema">Entrar</string>
+    <string name="sairApp">Sair</string>
+
+</resources>
