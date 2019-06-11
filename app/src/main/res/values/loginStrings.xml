@@ -11,4 +11,8 @@
     <string name="acessarSistema">Entrar</string>
     <string name="sairApp">Sair</string>
 
+    <string name="informationMessage"> Os campos devem ser preenchidos!</string>
+    <string name="buttonInformation">OK</string>
+    <string name="buttonInformationOkId">btnOkdialog</string>
+
 </resources>
