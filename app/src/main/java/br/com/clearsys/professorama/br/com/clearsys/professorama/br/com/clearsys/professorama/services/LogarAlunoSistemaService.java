@@ -10,5 +10,5 @@ import retrofit2.http.POST;
 public interface LogarAlunoSistemaService {
     @Headers("Content-Type:Application/json")
     @POST("api/login-aluno")
-    Call<LoginSistema> logarAluno(@Body Aluno aluno);
+    Call<LoginSistema> logarAluno(@Body LoginSistema sistema);
 }

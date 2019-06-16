@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -23,7 +24,8 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
 
 
-    Aluno sistema = new Aluno();
+    LoginSistema sistema = new LoginSistema();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +34,11 @@ public class LoginActivity extends AppCompatActivity {
         final EditText user = findViewById(R.id.textInfoUser);
         final EditText password = findViewById(R.id.textInfoPassword);
 
-        Button btnCadastrarNovoAluno = findViewById(R.id.btnCadastraNovoAluno);
+        final CheckBox chcbxAluno = findViewById(R.id.chc_box_aluno);
+
+        final Button btnCadastrarNovoAluno = findViewById(R.id.btnCadastraNovoAluno);
+        final Button btnAcessar = findViewById(R.id.btnAcessaSistema);
+
         btnCadastrarNovoAluno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,53 +47,66 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        Button btnAcessar = findViewById(R.id.btnAcessaSistema);
+
         btnAcessar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sistema.setUsuario(user.getText().toString());
                 sistema.setSenha(password.getText().toString());
 
-                if((sistema.getUsuario().equals("")) && (sistema.getSenha().equals(""))){
-                        Toast.makeText(getApplicationContext(), "Os campos devem ser preenchidos", Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(getApplicationContext(), "usuario" + sistema.getUsuario()+"senha"+sistema.getSenha(), Toast.LENGTH_LONG).show();
+                if ((sistema.getUsuario().equals("")) && (sistema.getSenha().equals(""))) {
+                    Toast.makeText(getApplicationContext(), "Os campos devem ser preenchidos", Toast.LENGTH_LONG).show();
 
-                    Call<Aluno> loginAluno = new RetrofigConfig().getAlunoLoginSistema().logarAluno(sistema);
+                } else if (chcbxAluno.isChecked()) {
 
-                    loginAluno.enqueue(new Callback<Aluno>() {
+                    Toast.makeText(getApplicationContext(), "Buscando em aluno", Toast.LENGTH_LONG).show();
+                    Call<LoginSistema> loginAluno = new RetrofigConfig().getAlunoLoginSistema().logarAluno(sistema);
+                    loginAluno.enqueue(new Callback<LoginSistema>() {
                         @Override
-                        public void onResponse(Call<Aluno> loginAluno, Response<Aluno> response) {
+                        public void onResponse(Call<LoginSistema> loginAluno, Response<LoginSistema> response) {
+
                             sistema = response.body();
-                                if (response.isSuccessful()){
-                                    Intent intentAcessaSistemaAluno = new Intent(getApplicationContext(), AlunoHomeActivity.class);
-                                    startActivity(intentAcessaSistemaAluno);
-                                }else{
-                                    Call<LoginSistema> loginProfessor = new RetrofigConfig().getProfessorLoginSistema().logarProfessor(sistema);
-                                    loginProfessor.enqueue(new Callback<Professor>() {
-                                        @Override
-                                        public void onResponse(Call<Professor> loginProfessor, Response<Professor> response) {
-                                            sistema = response.body();
-                                            if(response.isSuccessful()){
-                                                Intent intentAcessaSistemaProfessor = new Intent(getApplicationContext(), ProfessorHomeActivity.class);
-                                                startActivity(intentAcessaSistemaProfessor);
-                                            }
-                                        }
-                                        @Override
-                                        public void onFailure(Call<Professor> call, Throwable t) {
-                                            Toast.makeText(getApplicationContext(), "Usuario ou senha não encontrado", Toast.LENGTH_LONG).show();
-                                        }
-                                    });
-                                }
+                            if (response.isSuccessful()) {
+                                Intent intentAcessaSistemaAluno = new Intent(getApplicationContext(), AlunoHomeActivity.class);
+                                startActivity(intentAcessaSistemaAluno);
+                            }
+
                         }
+
                         @Override
                         public void onFailure(Call<LoginSistema> call, Throwable t) {
                             Toast.makeText(getApplicationContext(), "Usuario ou senha não encontrado", Toast.LENGTH_LONG).show();
                             Log.e("AlunoService   ", "Erro ao buscar aluno:" + t.getMessage());
                         }
                     });
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Buscando em professor", Toast.LENGTH_LONG).show();
+
+                    Call<LoginSistema> loginProfessor = new RetrofigConfig().getProfessorLoginSistema().logarProfessor(sistema);
+                    loginProfessor.enqueue(new Callback<LoginSistema>() {
+
+                        @Override
+                        public void onResponse(Call<LoginSistema> loginProfessor, Response<LoginSistema> response) {
+                            sistema = response.body();
+
+                            if (response.isSuccessful()) {
+                                Intent intentAcessaSistemaProfessor = new Intent(getApplicationContext(), ProfessorHomeActivity.class);
+                                startActivity(intentAcessaSistemaProfessor);
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<LoginSistema> call, Throwable t) {
+                            Toast.makeText(getApplicationContext(), "Usuario ou senha não encontrado", Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }
+
             }
         });
+
+        }
     }
-}
+
+

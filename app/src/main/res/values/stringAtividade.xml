@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="title_fragment">Cadastro </string>
+
+    <string name="professor_id">Professor id</string>
+    <string name="data_inicio"> Data inicio</string>
+    <string name="data_entrega"> Data entrega</string>
+    <string name="materia"> Materia</string>
+    <string name="serie"> Serie</string>
+    <string name="descricao"> Descrição</string>
+
+    <string name="btnIncluirAtividade"> Incluir</string>
+
+
+</resources>

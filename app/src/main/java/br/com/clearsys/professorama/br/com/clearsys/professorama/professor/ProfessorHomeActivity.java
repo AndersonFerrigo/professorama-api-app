@@ -80,7 +80,7 @@ public class ProfessorHomeActivity extends AppCompatActivity {
         }
     };
 
-    private void managerFragment(Fragment fragment, String tag) {
+    public void managerFragment(Fragment fragment, String tag) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.containerForFragment, fragment, tag);

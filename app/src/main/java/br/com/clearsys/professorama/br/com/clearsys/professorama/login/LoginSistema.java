@@ -1,6 +1,8 @@
 package br.com.clearsys.professorama.br.com.clearsys.professorama.login;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LoginSistema {
 
     private String usuario, senha;

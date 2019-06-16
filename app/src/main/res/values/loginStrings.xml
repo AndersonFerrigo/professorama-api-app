@@ -8,7 +8,8 @@
     <string name="user">Usuario</string>
     <string name="password">Senha</string>
     <string name="cadastrarNovoAluno"> Primeiro acesso , clique aqui!</string>
-    <string name="acessarSistema">Entrar</string>
+    <string name="acessarSistema">Acessar</string>
+    <string name="checkbox_aluno">Eu sou aluno</string>
     <string name="sairApp">Sair</string>
 
     <string name="informationMessage"> Os campos devem ser preenchidos!</string>

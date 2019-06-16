@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,7 +8,8 @@
     tools:context=".br.com.clearsys.professorama.br.com.clearsys.professorama.novaAtividade.DescricaoNovaAtividadeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -16,29 +18,95 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp">
 
+
         <TextView
-            android:id="@+id/mostraData"
+            android:id="@+id/tituloFrag"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_marginTop="30dp"
             android:textAlignment="center"
-            android:hint="Recebe Data"
+            android:hint="Atividade"
+            android:textSize="20dp"
             android:textColor="@color/colorBotaoCadastrar"
+            android:textColorHint="@color/colorBotaoCadastrar"
             />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/colorBotaoCadastrar"
-            android:textSize="30dp"
-            android:textAlignment="center"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:maxLines="100"
-            />
-    </LinearLayout>
 
+        <EditText
+            android:id="@+id/data_inicio"
+            android:layout_width="140dp"
+            android:layout_marginStart="10dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/colorBotaoCadastrar"
+            android:textSize="20dp"
+            android:hint="@string/data_inicio"
+            android:backgroundTint="@color/colorBotaoCadastrar"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            android:textCursorDrawable="@drawable/my_cursor"/>
+
+        <EditText
+            android:id="@+id/data_entrega"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="50dp"
+            android:hint="@string/data_entrega"
+            android:textSize="20dp"
+            android:textColor="@color/colorBotaoCadastrar"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            android:backgroundTint="@color/colorBotaoCadastrar"
+            android:textCursorDrawable="@drawable/my_cursor"/>
+
+        <EditText
+            android:id="@+id/materia"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="130dp"
+            android:layout_marginStart="10dp"
+            android:hint="@string/materia"
+            android:textSize="20dp"
+            android:textColor="@color/colorBotaoCadastrar"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            android:backgroundTint="@color/colorBotaoCadastrar"
+            android:textCursorDrawable="@drawable/my_cursor"/>
+
+        <EditText
+            android:id="@+id/serie"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="130dp"
+            android:hint="@string/serie"
+            android:textSize="20dp"
+            android:textColor="@color/colorBotaoCadastrar"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            android:backgroundTint="@color/colorBotaoCadastrar"
+            android:textCursorDrawable="@drawable/my_cursor"/>
+
+        <EditText
+            android:id="@+id/descricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="180dp"
+            android:hint="@string/descricao"
+            android:textSize="20dp"
+            android:lines="10"
+            android:textColor="@color/colorBotaoCadastrar"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            android:backgroundTint="@color/colorBotaoCadastrar"
+            android:textCursorDrawable="@drawable/my_cursor"/>
+
+        <Button
+            android:id="@+id/btnIncluiNovaAtividade"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="470dp"
+            android:layout_marginStart="55dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:background="@android:color/transparent"
+            android:text="@string/btnIncluirAtividade"
+            android:textColor="@color/colorBotaoCadastrar"/>
+    </RelativeLayout>
 
 </FrameLayout>

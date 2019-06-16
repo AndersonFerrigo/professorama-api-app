@@ -1,5 +1,8 @@
 package br.com.clearsys.professorama.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Professor {
     private int id;
     private String nome;
