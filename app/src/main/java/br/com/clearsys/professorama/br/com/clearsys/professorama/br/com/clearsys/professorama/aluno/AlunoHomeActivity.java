@@ -14,15 +14,22 @@ import android.widget.Toast;
 
 import br.com.clearsys.professorama.R;
 import br.com.clearsys.professorama.br.com.clearsys.professorama.login.LoginActivity;
+import br.com.clearsys.professorama.config.RetrofigConfig;
+import br.com.clearsys.professorama.model.Aluno;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AlunoHomeActivity extends AppCompatActivity {
 
+    private Aluno aluno;
     FragmentHomeAluno homeAluno = new FragmentHomeAluno();
     FragmentCalendarioAluno calendarioAluno = new FragmentCalendarioAluno();
     FragmentTarefasAluno tarefasAluno = new FragmentTarefasAluno();
     FragmentLembretesAluno lembretesAluno = new FragmentLembretesAluno();
 
     public FrameLayout containerForFragmentAluno;
+
 
     private static final String HOME_ALUNO = "HOME_FRAGMENT_ALUNO";
     private static final String CALENDARIO_ALUNO = "CALENDARIO_FRAGMENT_ALUNO";
@@ -40,13 +47,18 @@ public class AlunoHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aluno_home);
 
+        Intent intent = getIntent();
+        aluno = intent.getParcelableExtra("aluno");
+
+        Toast.makeText(getApplicationContext(), "Informação recebeida apos login usuario: " + aluno, Toast.LENGTH_LONG).show();
+
         containerForFragmentAluno = findViewById(R.id.containerForFragmentAluno);
         navigationAluno = findViewById(R.id.navigation_aluno);
         navigationAluno.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListenerAluno);
 
         //implementing fragment
         FragmentHomeAluno homeAluno = new FragmentHomeAluno();
-        managerFragment(homeAluno, HOME_ALUNO);
+         managerFragment(homeAluno, HOME_ALUNO);
 
     }
 
@@ -68,6 +80,7 @@ public class AlunoHomeActivity extends AppCompatActivity {
 
                 case R.id.ic_tasks_scheduled:
                     //Toast.makeText(getApplicationContext(), "ATIVIDADE AGENDADA", Toast.LENGTH_SHORT).show();
+
                     managerFragment(tarefasAluno, TAREFA_AGENDADA_ALUNO);
                     return true;
 
@@ -100,9 +113,15 @@ public class AlunoHomeActivity extends AppCompatActivity {
             super.onBackPressed();
             Intent intent = new Intent(getBaseContext(), LoginActivity.class);
             startActivity(intent);
-        }else
+        } else
             Toast.makeText(getBaseContext(), "Pressione voltar novamente para sair", Toast.LENGTH_SHORT).show();
         back_pressed_aluno = System.currentTimeMillis();
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
 
 }

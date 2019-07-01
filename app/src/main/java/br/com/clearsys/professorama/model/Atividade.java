@@ -3,8 +3,10 @@ package br.com.clearsys.professorama.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.io.Serializable;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Atividade {
+public class Atividade implements Serializable {
 
     private String dataInicio;
     private String dataEntrega;

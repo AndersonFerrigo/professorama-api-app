@@ -7,10 +7,31 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:layout_gravity="center"
-        android:textSize="30dp"/>
+        android:layout_marginTop="80dp"
+        android:text="Seja bem vindo"
+        android:textAlignment="center"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/nome_aluno"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="160dp"
+        android:text="@string/nomeAluno"
+        android:textAlignment="center"
+        android:textSize="30dp" />
+
+
+    <TextView
+        android:id="@+id/serie_aluno"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="250dp"
+        android:text="@string/serie"
+        android:textAlignment="center"
+        android:textSize="30dp" />
 
 </FrameLayout>

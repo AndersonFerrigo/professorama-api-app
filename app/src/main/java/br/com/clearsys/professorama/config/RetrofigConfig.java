@@ -1,5 +1,6 @@
 package br.com.clearsys.professorama.config;
 
+import br.com.clearsys.professorama.br.com.clearsys.professorama.br.com.clearsys.professorama.services.BuscaAlunoPeloUsuario;
 import br.com.clearsys.professorama.br.com.clearsys.professorama.br.com.clearsys.professorama.services.CadastraAtividadeService;
 import br.com.clearsys.professorama.br.com.clearsys.professorama.br.com.clearsys.professorama.services.CadastrarAlunoService;
 import br.com.clearsys.professorama.br.com.clearsys.professorama.br.com.clearsys.professorama.services.LogarAlunoSistemaService;
@@ -12,26 +13,29 @@ public class RetrofigConfig {
     private final Retrofit retrofit;
 
 
-    public RetrofigConfig(){
-        this.retrofit =  new Retrofit.Builder()
+    public RetrofigConfig() {
+        this.retrofit = new Retrofit.Builder()
                 .addConverterFactory(JacksonConverterFactory.create())
                 .baseUrl("http://192.168.0.17:8080/")
                 .build();
     }
 
-    public CadastrarAlunoService getAlunoService(){
+    public CadastrarAlunoService getAlunoService() {
         return this.retrofit.create(CadastrarAlunoService.class);
     }
 
-    public LogarAlunoSistemaService getAlunoLoginSistema(){
+    public LogarAlunoSistemaService getAlunoLoginSistema() {
         return this.retrofit.create(LogarAlunoSistemaService.class);
     }
 
-    public LogarProfessorSistemaService getProfessorLoginSistema(){
+    public LogarProfessorSistemaService getProfessorLoginSistema() {
         return this.retrofit.create(LogarProfessorSistemaService.class);
     }
 
-    public CadastraAtividadeService getCadastroAtividadeService(){
+    public CadastraAtividadeService getCadastroAtividadeService() {
         return this.retrofit.create(CadastraAtividadeService.class);
+    }
+    public BuscaAlunoPeloUsuario getAlunoPeloUsuario(){
+        return this.retrofit.create(BuscaAlunoPeloUsuario.class);
     }
 }

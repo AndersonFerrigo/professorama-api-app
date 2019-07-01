@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import br.com.clearsys.professorama.R;
@@ -35,38 +34,38 @@ public class NovaAtividadeFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
-      final View vNovaTarefaFrag =  inflater.inflate(R.layout.fragment_nova_atividade, container, false);
+        final View vNovaTarefaFrag = inflater.inflate(R.layout.fragment_nova_atividade, container, false);
 
-      tarefaCalendar = vNovaTarefaFrag.findViewById(R.id.novaTarefaCAlendar);
+        tarefaCalendar = vNovaTarefaFrag.findViewById(R.id.novaTarefaCAlendar);
 
-      tarefaCalendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+        tarefaCalendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
-              @Override
-              public void onSelectedDayChange(CalendarView v, int year, int month, int day) {
+            @Override
+            public void onSelectedDayChange(CalendarView v, int year, int month, int day) {
 
-                  int dia = day;
-                  int mes = month +1;
-                  int ano = year;
+                int dia = day;
+                int mes = month + 1;
+                int ano = year;
 
-                  dataCustom = dia + "/ " + mes + "/ "+ year;
-                  Toast.makeText(getActivity(), dataCustom, Toast.LENGTH_LONG).show();
+                dataCustom = dia + "/ " + mes + "/ " + year;
+                Toast.makeText(getActivity(), dataCustom, Toast.LENGTH_LONG).show();
 
-                  managerFragment(descricaoNovaAtividadeFragment,DESCRICAO_NOVA_ATIVIDADE_FRAGMENT);
-              }
-      });
-        return  vNovaTarefaFrag;
+                managerFragment(descricaoNovaAtividadeFragment, DESCRICAO_NOVA_ATIVIDADE_FRAGMENT);
+            }
+        });
+        return vNovaTarefaFrag;
     }
 
 
-    private void managerFragment(Fragment fragment, String tag){
+    private void managerFragment(Fragment fragment, String tag) {
 
         Bundle bundle = new Bundle();
         String myMessage = dataCustom;
-        bundle.putString("data", myMessage );
+        bundle.putString("data", myMessage);
         fragment.setArguments(bundle);
-        FragmentManager  fragmentManager = getFragmentManager();
+        FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.containerForFragment,fragment,tag);
+        fragmentTransaction.replace(R.id.containerForFragment, fragment, tag);
 
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();

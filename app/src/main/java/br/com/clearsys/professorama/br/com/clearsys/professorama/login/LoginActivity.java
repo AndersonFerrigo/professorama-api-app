@@ -1,4 +1,4 @@
-package br.com.clearsys.professorama.br.com.clearsys.professorama.login;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           package br.com.clearsys.professorama.br.com.clearsys.professorama.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,8 +10,14 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
+
 import br.com.clearsys.professorama.R;
 import br.com.clearsys.professorama.br.com.clearsys.professorama.br.com.clearsys.professorama.aluno.AlunoHomeActivity;
+import br.com.clearsys.professorama.br.com.clearsys.professorama.br.com.clearsys.professorama.aluno.FragmentHomeAluno;
 import br.com.clearsys.professorama.br.com.clearsys.professorama.novoAluno.CadastroNovoAluno;
 import br.com.clearsys.professorama.br.com.clearsys.professorama.professor.ProfessorHomeActivity;
 import br.com.clearsys.professorama.config.RetrofigConfig;
@@ -23,8 +29,10 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-
-    LoginSistema sistema = new LoginSistema();
+    ObjectMapper mapper = new ObjectMapper();
+    private Aluno aluno ;
+    Professor professor = new Professor();
+    String alunoObjsct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
         btnCadastrarNovoAluno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent cadastraNovoAluno = new Intent(getApplicationContext(),CadastroNovoAluno.class);
+                Intent cadastraNovoAluno = new Intent(getApplicationContext(), CadastroNovoAluno.class);
                 startActivity(cadastraNovoAluno);
             }
         });
@@ -51,44 +59,51 @@ public class LoginActivity extends AppCompatActivity {
         btnAcessar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sistema.setUsuario(user.getText().toString());
-                sistema.setSenha(password.getText().toString());
 
-                if ((sistema.getUsuario().equals("")) && (sistema.getSenha().equals(""))) {
+                aluno = new Aluno();
+                aluno.setUsuario(user.getText().toString());
+                aluno.setSenha(password.getText().toString());
+
+                Toast.makeText(getApplicationContext(), "Usuario : " + aluno.getUsuario() + " " + "senha: " + aluno.getSenha()
+                        , Toast.LENGTH_LONG).show();
+
+                if ((aluno.getUsuario().equals("")) || (aluno.getSenha().equals(""))) {
                     Toast.makeText(getApplicationContext(), "Os campos devem ser preenchidos", Toast.LENGTH_LONG).show();
 
                 } else if (chcbxAluno.isChecked()) {
-
-                    Toast.makeText(getApplicationContext(), "Buscando em aluno", Toast.LENGTH_LONG).show();
-                    Call<LoginSistema> loginAluno = new RetrofigConfig().getAlunoLoginSistema().logarAluno(sistema);
-                    loginAluno.enqueue(new Callback<LoginSistema>() {
+                    Call<Aluno> loginAluno  = new RetrofigConfig().getAlunoLoginSistema().logarAluno(aluno.getUsuario(),aluno.getSenha());
+                    loginAluno.enqueue(new Callback<Aluno>() {
                         @Override
-                        public void onResponse(Call<LoginSistema> loginAluno, Response<LoginSistema> response) {
+                        public void onResponse(Call<Aluno> call, Response<Aluno> response) {
+                            aluno = response.body();
 
-                            sistema = response.body();
+                            Toast.makeText(getApplicationContext(), "Aluno : " + aluno, Toast.LENGTH_LONG).show();
+
                             if (response.isSuccessful()) {
-                                Intent intentAcessaSistemaAluno = new Intent(getApplicationContext(), AlunoHomeActivity.class);
-                                startActivity(intentAcessaSistemaAluno);
+
+                                Intent intent = new Intent(getApplicationContext(), AlunoHomeActivity.class);
+                                intent.putExtra("aluno", aluno);
+                                startActivity(intent);
+
                             }
-
+                        }@Override
+                        public void onFailure(Call<Aluno> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(), "Usuario não encontrado", Toast.LENGTH_LONG).show();
                         }
+                   });
 
-                        @Override
-                        public void onFailure(Call<LoginSistema> call, Throwable t) {
-                            Toast.makeText(getApplicationContext(), "Usuario ou senha não encontrado", Toast.LENGTH_LONG).show();
-                            Log.e("AlunoService   ", "Erro ao buscar aluno:" + t.getMessage());
-                        }
-                    });
-
-                } else {
+               } else {
                     Toast.makeText(getApplicationContext(), "Buscando em professor", Toast.LENGTH_LONG).show();
 
-                    Call<LoginSistema> loginProfessor = new RetrofigConfig().getProfessorLoginSistema().logarProfessor(sistema);
-                    loginProfessor.enqueue(new Callback<LoginSistema>() {
+                    professor.setUsuario(user.getText().toString());
+                    professor.setSenha(password.getText().toString());
+
+                    Call<Professor> loginProfessor = new RetrofigConfig().getProfessorLoginSistema().logarProfessor(professor);
+                    loginProfessor.enqueue(new Callback<Professor>() {
 
                         @Override
-                        public void onResponse(Call<LoginSistema> loginProfessor, Response<LoginSistema> response) {
-                            sistema = response.body();
+                        public void onResponse(Call<Professor> loginProfessor, Response<Professor> response) {
+                            professor = response.body();
 
                             if (response.isSuccessful()) {
                                 Intent intentAcessaSistemaProfessor = new Intent(getApplicationContext(), ProfessorHomeActivity.class);
@@ -97,16 +112,28 @@ public class LoginActivity extends AppCompatActivity {
                         }
 
                         @Override
-                        public void onFailure(Call<LoginSistema> call, Throwable t) {
+                        public void onFailure(Call<Professor> call, Throwable t) {
                             Toast.makeText(getApplicationContext(), "Usuario ou senha não encontrado", Toast.LENGTH_LONG).show();
                         }
                     });
-                }
 
+                }
             }
         });
 
-        }
     }
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -2,8 +2,10 @@ package br.com.clearsys.professorama.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.io.Serializable;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Professor {
+public class Professor implements Serializable {
     private int id;
     private String nome;
     private String perfil;

@@ -28,7 +28,7 @@
             android:inputType="textPersonName"
             android:textColorHint="@color/colorBotaoCadastrar"
             android:backgroundTint="@color/colorBotaoCadastrar"
-            android:textCursorDrawable="@drawable/my_cursor"/>
+            android:textCursorDrawable="@drawable/my_cursor" />
 
         <EditText
             android:id="@+id/textInfoPassword"
@@ -42,7 +42,7 @@
             android:inputType="textPassword"
             android:textColorHint="@color/colorBotaoCadastrar"
             android:backgroundTint="@color/colorBotaoCadastrar"
-            android:textCursorDrawable="@drawable/my_cursor"/>
+            android:textCursorDrawable="@drawable/my_cursor" />
 
         <CheckBox
             android:id="@+id/chc_box_aluno"
@@ -53,7 +53,7 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
             app:buttonTint="@color/colorBotaoCadastrar"
-            android:textColor="@color/colorBotaoCadastrar"/>
+            android:textColor="@color/colorBotaoCadastrar" />
 
     </LinearLayout>
 
@@ -70,7 +70,7 @@
             android:layout_gravity="center"
             android:background="@android:color/transparent"
             android:text="@string/cadastrarNovoAluno"
-            android:textColor="@color/colorBotaoCadastrar"/>
+            android:textColor="@color/colorBotaoCadastrar" />
 
         <Button
 

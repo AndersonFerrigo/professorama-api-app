@@ -13,7 +13,7 @@
         android:layout_marginTop="50dp"
         android:textSize="20dp"
         android:text="@string/nova_atividade_fragment"
-        android:textColor="@color/colorBotaoCadastrar"/>
+        android:textColor="@color/colorBotaoCadastrar" />
 
     <CalendarView
         android:id="@+id/novaTarefaCAlendar"
@@ -25,8 +25,6 @@
         android:dateTextAppearance="@style/CalenderViewDateCustomText"
         android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"
         android:clickable="true" />
-
-
 
 
 </FrameLayout>

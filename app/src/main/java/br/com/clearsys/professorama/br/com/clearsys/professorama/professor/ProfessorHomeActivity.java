@@ -56,12 +56,12 @@ public class ProfessorHomeActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.ic_home:
-                  //  Toast.makeText(getApplicationContext(), "HOME", Toast.LENGTH_SHORT).show();
+                    //  Toast.makeText(getApplicationContext(), "HOME", Toast.LENGTH_SHORT).show();
                     managerFragment(homeFragment, HOME_FRAGMENT);
                     return true;
 
                 case R.id.ic_new_task:
-                   // Toast.makeText(getApplicationContext(), "NOVA ATIVIDADE", Toast.LENGTH_SHORT).show();
+                    // Toast.makeText(getApplicationContext(), "NOVA ATIVIDADE", Toast.LENGTH_SHORT).show();
                     managerFragment(novaAtividadeFragment, NOVA_ATIVIDADE_FRAGMENT);
                     return true;
 
@@ -88,21 +88,21 @@ public class ProfessorHomeActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-        @Override
-        public void onBackPressed() {
+    @Override
+    public void onBackPressed() {
 
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            Fragment mfragmentA = fragmentManager.findFragmentByTag(HOME_FRAGMENT);
-            navigation.setSelectedItemId(R.id.ic_home);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment mfragmentA = fragmentManager.findFragmentByTag(HOME_FRAGMENT);
+        navigation.setSelectedItemId(R.id.ic_home);
 
-            if (back_pressed + 2000 > System.currentTimeMillis()) {
-                super.onBackPressed();
-                Intent intent = new Intent(getBaseContext(), LoginActivity.class);
-                startActivity(intent);
-            }else
-                Toast.makeText(getBaseContext(), "Pressione voltar novamente para sair", Toast.LENGTH_SHORT).show();
-            back_pressed = System.currentTimeMillis();
-        }
+        if (back_pressed + 2000 > System.currentTimeMillis()) {
+            super.onBackPressed();
+            Intent intent = new Intent(getBaseContext(), LoginActivity.class);
+            startActivity(intent);
+        } else
+            Toast.makeText(getBaseContext(), "Pressione voltar novamente para sair", Toast.LENGTH_SHORT).show();
+        back_pressed = System.currentTimeMillis();
+    }
 
 }
 

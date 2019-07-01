@@ -21,7 +21,7 @@ public class CronometroAulaFragment extends Fragment {
     Button btnComecarAula;
     Button btnPausarAula;
     Button btnZerarAula;
-    boolean isClickPause = false ;
+    boolean isClickPause = false;
     long tempoParado = 0;
 
     public CronometroAulaFragment() {
@@ -60,8 +60,8 @@ public class CronometroAulaFragment extends Fragment {
         btnPausarAula.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isClickPause == false){
-                  tempoParado = chronometerAula.getBase() - SystemClock.elapsedRealtime();
+                if (isClickPause == false) {
+                    tempoParado = chronometerAula.getBase() - SystemClock.elapsedRealtime();
                 }
                 chronometerAula.stop();
                 isClickPause = true;

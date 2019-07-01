@@ -4,27 +4,23 @@
 
         android:id="@+id/ic_home"
         android:icon="@drawable/ic_action_name"
-        android:title="@string/home">
-    </item>
+        android:title="@string/home"></item>
 
     <item
         android:id="@+id/ic_new_task"
         android:icon="@drawable/ic_create_new_task"
-        android:title="@string/novaTarefa"
-        >
+        android:title="@string/novaTarefa">
 
     </item>
 
     <item
         android:id="@+id/ic_tasks_scheduled"
         android:icon="@drawable/ic_tasks_schedule"
-        android:title="@string/tarefasAgendadas">
-    </item>
+        android:title="@string/tarefasAgendadas"></item>
 
     <item
         android:id="@+id/ic_crono"
         android:icon="@drawable/ic_cronometer"
-        android:title="@string/cronometro">
-    </item>
+        android:title="@string/cronometro"></item>
 
 </menu>

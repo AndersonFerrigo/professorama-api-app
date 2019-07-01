@@ -10,8 +10,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.List;
-
 import br.com.clearsys.professorama.R;
 import br.com.clearsys.professorama.br.com.clearsys.professorama.login.LoginActivity;
 import br.com.clearsys.professorama.config.RetrofigConfig;
@@ -30,14 +28,12 @@ public class CadastroNovoAluno extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_novo_aluno);
 
 
-
         Button btnCadastraAluno = findViewById(R.id.btnCadastraNovoAluno);
 
         btnCadastraAluno.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                aluno = new Aluno();
 
                 EditText txtNome = findViewById(R.id.nome);
                 aluno.setNome(txtNome.getText().toString());
@@ -62,15 +58,15 @@ public class CadastroNovoAluno extends AppCompatActivity {
                 alunoCall.enqueue(new Callback<Aluno>() {
                     @Override
                     public void onResponse(Call<Aluno> alunoCall1, Response<Aluno> response) {
-                      aluno = response.body();
-                       Toast.makeText(getApplicationContext(), "Entrou no OnResponse", Toast.LENGTH_SHORT).show();
+                        aluno = response.body();
+                        Toast.makeText(getApplicationContext(), "Entrou no OnResponse", Toast.LENGTH_SHORT).show();
 
-                        if(response.isSuccessful()) {
-                          Toast.makeText(getApplicationContext(), "Aluno Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
-                          Intent retornaTelaPrincipal = new Intent(getApplicationContext(), LoginActivity.class);
-                          startActivity(retornaTelaPrincipal);
-                      }
-                     }
+                        if (response.isSuccessful()) {
+                            Toast.makeText(getApplicationContext(), "Aluno Cadastrado com sucesso", Toast.LENGTH_SHORT).show();
+                            Intent retornaTelaPrincipal = new Intent(getApplicationContext(), LoginActivity.class);
+                            startActivity(retornaTelaPrincipal);
+                        }
+                    }
 
                     @Override
                     public void onFailure(Call<Aluno> alunoCall1, Throwable t) {

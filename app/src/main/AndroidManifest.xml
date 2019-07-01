@@ -31,9 +31,14 @@
             android:name=".br.com.clearsys.professorama.professor.ProfessorHomeActivity"
             android:parentActivityName=".br.com.clearsys.professorama.professor.ProfessorHomeActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".br.com.clearsys.professorama.br.com.clearsys.professorama.aluno.AlunoHomeActivity"></activity>
+        <activity
+            android:name=".br.com.clearsys.professorama.br.com.clearsys.professorama.aluno.AlunoHomeActivity"
+            android:parentActivityName=".br.com.clearsys.professorama.br.com.clearsys.professorama.aluno.AlunoHomeActivity"
+            android:screenOrientation="portrait"/>
+
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 </manifest>

@@ -32,7 +32,7 @@
             android:hint="@string/nomeAluno"
             android:textColorHint="@color/colorBotaoCadastrar"
             android:backgroundTint="@color/colorBotaoCadastrar"
-            android:textCursorDrawable="@drawable/my_cursor"/>
+            android:textCursorDrawable="@drawable/my_cursor" />
 
         <EditText
             android:id="@+id/serie"
@@ -43,7 +43,7 @@
             android:hint="@string/serieAluno"
             android:textColorHint="@color/colorBotaoCadastrar"
             android:backgroundTint="@color/colorBotaoCadastrar"
-            android:textCursorDrawable="@drawable/my_cursor"/>
+            android:textCursorDrawable="@drawable/my_cursor" />
 
         <TextView
             android:id="@+id/perfil"
@@ -56,7 +56,7 @@
             android:text="@string/perfilAluno"
             android:textColorHint="@color/colorBotaoCadastrar"
             android:backgroundTint="@color/colorBotaoCadastrar"
-            android:textCursorDrawable="@drawable/my_cursor"/>
+            android:textCursorDrawable="@drawable/my_cursor" />
 
 
         <EditText
@@ -68,7 +68,7 @@
             android:hint="@string/userAluno"
             android:textColorHint="@color/colorBotaoCadastrar"
             android:backgroundTint="@color/colorBotaoCadastrar"
-            android:textCursorDrawable="@drawable/my_cursor"/>
+            android:textCursorDrawable="@drawable/my_cursor" />
 
         <EditText
             android:id="@+id/senha"
@@ -79,7 +79,7 @@
             android:hint="@string/passwordAluno"
             android:textColorHint="@color/colorBotaoCadastrar"
             android:backgroundTint="@color/colorBotaoCadastrar"
-            android:textCursorDrawable="@drawable/my_cursor"/>
+            android:textCursorDrawable="@drawable/my_cursor" />
 
         <Button
             android:id="@+id/btnCadastraNovoAluno"
@@ -89,7 +89,7 @@
             android:layout_gravity="center"
             android:text="@string/cadastrarAluno"
             android:textColor="@color/colorBotaoCadastrar"
-            android:background="@drawable/custom_buttons"/>
+            android:background="@drawable/custom_buttons" />
 
     </LinearLayout>
 
