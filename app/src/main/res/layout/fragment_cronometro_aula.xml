@@ -3,29 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_professorama"
     tools:context=".br.com.clearsys.professorama.professor.CronometroAulaFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="70sp"
         android:textSize="30dp"
         android:textAlignment="center"
         android:textColor="@color/colorBotaoCadastrar"
-        android:text="@string/cronometro_fragment" />
+        android:text="@string/tituloTelaCronometro" />
 
     <Chronometer
         android:id="@+id/aulaCronometro"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="137dp"
         android:layout_gravity="center"
-        android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="30dp"
         android:layout_marginBottom="100dp"
-        android:textSize="80dp"
         android:textColor="@color/colorBotaoCadastrar"
+        android:textSize="80dp"
         android:textStyle="bold" />
 
     <RelativeLayout
@@ -41,11 +40,12 @@
             android:layout_marginStart="100dp"
             android:layout_marginEnd="100dp"
             android:layout_marginBottom="230dp"
-            android:background="@drawable/custom_buttons"
+            android:background="@android:color/transparent"
             android:elevation="2dp"
             android:textColor="@color/colorBotaoCadastrar"
             android:gravity="center"
-            android:text="Iniciar contagem">
+            android:text="Iniciar contagem"
+            android:textSize="20sp">
 
         </Button>
 
@@ -57,10 +57,13 @@
             android:layout_marginStart="100dp"
             android:layout_marginEnd="100dp"
             android:layout_marginBottom="160dp"
-            android:background="@drawable/custom_buttons"
+            android:background="@android:color/transparent"
             android:elevation="2dp"
             android:textColor="@color/colorBotaoCadastrar"
-            android:text="Pausar contagem"></Button>
+            android:text="Pausar contagem"
+            android:textSize="20sp">
+
+        </Button>
 
         <Button
             android:id="@+id/zerarAula"
@@ -71,10 +74,11 @@
             android:layout_marginStart="100dp"
             android:layout_marginEnd="100dp"
             android:layout_marginBottom="90dp"
-            android:background="@drawable/custom_buttons"
+            android:background="@android:color/transparent"
             android:elevation="2dp"
             android:textColor="@color/colorBotaoCadastrar"
-            android:text="Zerar contagem">
+            android:text="Zerar contagem"
+            android:textSize="20sp">
 
         </Button>
     </RelativeLayout>

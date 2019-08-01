@@ -1,19 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Professorama</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="home_fragment">Informaçoes do professor</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="nova_atividade_fragment">Nova Tarefa </string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="tarefa_agendada_fragment">Tarefas Agendadas</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="cronometro_fragment">Controle tempo de aula</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Aluno</string>
-
+    <string name="cronometro_fragment">Cronometro</string>
+    <string name="home_fragment">Home Professor</string>
+    <string name="hello_blank_fragment">Lembretes Aluno</string>
+    <string name="nova_atividade_fragment">Atividades</string>
+    <string name="tarefa_agendada_fragment">Atividades Agendadas</string>
 </resources>

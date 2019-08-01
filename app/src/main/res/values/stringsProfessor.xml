@@ -5,6 +5,12 @@
     <string name="home"> home</string>
     <string name="novaTarefa"> Nova atividade</string>
     <string name="tarefasAgendadas">Atividades Agendadas</string>
-    <string name="cronometro">Cronometro</string>
+    <string name="tarefas">Atividades </string>
+
+    <!-- Textos do dialogo informa atividade cadastrada -->
+    <string name="informa_atividade_cadastrada">Atividade cadastrada com sucesso</string>
+
+    <!-- Textos da tela de cronometro de aula -->
+    <string name="tituloTelaCronometro">Acompanhamento da Aula</string>
 
 </resources>

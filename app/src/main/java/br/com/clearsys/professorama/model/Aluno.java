@@ -14,7 +14,7 @@ public class Aluno implements Parcelable {
     private int id;
     private String nome;
     private String serie;
-    private String perfil;
+    private String ra;
     private String usuario;
     private String senha;
 
@@ -24,7 +24,7 @@ public class Aluno implements Parcelable {
         id = in.readInt();
         nome = in.readString();
         serie = in.readString();
-        perfil = in.readString();
+        ra = in.readString();
         usuario = in.readString();
         senha = in.readString();
     }
@@ -41,63 +41,63 @@ public class Aluno implements Parcelable {
         }
     };
 
-    public int getId(){
+    public int getId() {
         return id;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getNome(){
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome){
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getSerie(){
+    public String getSerie() {
         return serie;
     }
 
-    public void setSerie(String serie){
+    public void setSerie(String serie) {
         this.serie = serie;
     }
 
-    public String getPerfil(){
-        return perfil;
+    public String getRa() {
+        return ra;
     }
 
-    public void setPerfil(String perfil){
-        this.perfil = perfil;
+    public void setRa(String ra) {
+        this.ra = ra;
     }
 
-    public String getUsuario(){
+    public String getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(String usuario){
+    public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
 
-    public String getSenha(){
+    public String getSenha() {
         return senha;
     }
 
-    public void setSenha(String senha){
+    public void setSenha(String senha) {
         this.senha = senha;
     }
 
     @Override
     public String toString() {
-        return " Aluno{" +
-                "\n id:" + id +
-                "\n nome:" + nome +
-                "\n serie:" + serie +
-                "\n perfil:" + perfil +
-                "\n usuario:" + usuario +
-                "\n senha:" + senha +
+        return "Aluno{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", serie='" + serie + '\'' +
+                ", ra='" + ra + '\'' +
+                ", usuario='" + usuario + '\'' +
+                ", senha='" + senha + '\'' +
                 '}';
     }
 
@@ -111,7 +111,7 @@ public class Aluno implements Parcelable {
         dest.writeInt(id);
         dest.writeString(nome);
         dest.writeString(serie);
-        dest.writeString(perfil);
+        dest.writeString(ra);
         dest.writeString(usuario);
         dest.writeString(senha);
     }

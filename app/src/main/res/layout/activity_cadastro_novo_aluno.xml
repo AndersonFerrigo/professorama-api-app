@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/drawable_background_login"
+    android:background="@drawable/background_professorama"
     android:orientation="vertical"
     tools:context=".br.com.clearsys.professorama.novoAluno.CadastroNovoAluno">
 
@@ -35,7 +35,7 @@
             android:textCursorDrawable="@drawable/my_cursor" />
 
         <EditText
-            android:id="@+id/serie"
+            android:id="@+id/cad_serie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -45,15 +45,15 @@
             android:backgroundTint="@color/colorBotaoCadastrar"
             android:textCursorDrawable="@drawable/my_cursor" />
 
-        <TextView
-            android:id="@+id/perfil"
+        <EditText
+            android:id="@+id/ra"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:textSize="20dp"
             android:textColor="@color/colorBotaoCadastrar"
             android:inputType="textPersonName"
-            android:text="@string/perfilAluno"
+            android:hint="@string/perfilAluno"
             android:textColorHint="@color/colorBotaoCadastrar"
             android:backgroundTint="@color/colorBotaoCadastrar"
             android:textCursorDrawable="@drawable/my_cursor" />

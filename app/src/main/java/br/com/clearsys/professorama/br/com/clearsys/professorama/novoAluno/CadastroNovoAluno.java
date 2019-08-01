@@ -34,16 +34,17 @@ public class CadastroNovoAluno extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                aluno = new Aluno();
 
                 EditText txtNome = findViewById(R.id.nome);
                 aluno.setNome(txtNome.getText().toString());
 
-                EditText txtSerie = findViewById(R.id.serie);
+                EditText txtSerie = findViewById(R.id.cad_serie);
                 aluno.setSerie(txtSerie.getText().toString());
 
 
-                TextView txtPerfil = findViewById(R.id.perfil);
-                aluno.setPerfil(txtPerfil.getText().toString());
+                EditText txtRa = findViewById(R.id.ra);
+                aluno.setRa(txtRa.getText().toString());
 
                 EditText txtUsuario = findViewById(R.id.usuario);
                 aluno.setUsuario(txtUsuario.getText().toString());

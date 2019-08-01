@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/drawable_background_login"
+    android:background="@drawable/new_login_professorama"
     android:orientation="vertical"
     tools:context=".br.com.clearsys.professorama.login.LoginActivity">
 
@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="200dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:hint="@string/user"
@@ -62,15 +62,6 @@
         android:layout_height="202dp"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnCadastraNovoAluno"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_gravity="center"
-            android:background="@android:color/transparent"
-            android:text="@string/cadastrarNovoAluno"
-            android:textColor="@color/colorBotaoCadastrar" />
 
         <Button
 
@@ -82,6 +73,16 @@
             android:elevation="2dp"
             android:background="@android:color/transparent"
             android:text="@string/acessarSistema"
+            android:textColor="@color/colorBotaoCadastrar" />
+
+        <Button
+            android:id="@+id/btnCadastraNovoAluno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:text="@string/cadastrarNovoAluno"
             android:textColor="@color/colorBotaoCadastrar" />
 
     </LinearLayout>

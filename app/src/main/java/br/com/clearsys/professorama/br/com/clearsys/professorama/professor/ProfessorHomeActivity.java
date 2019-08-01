@@ -14,9 +14,14 @@ import android.widget.Toast;
 
 import br.com.clearsys.professorama.R;
 import br.com.clearsys.professorama.br.com.clearsys.professorama.login.LoginActivity;
+import br.com.clearsys.professorama.model.Professor;
 
 
 public class ProfessorHomeActivity extends AppCompatActivity {
+
+    private Professor professor;
+
+    String materia;
 
     HomeFragment homeFragment = new HomeFragment();
     NovaAtividadeFragment novaAtividadeFragment = new NovaAtividadeFragment();
@@ -40,13 +45,30 @@ public class ProfessorHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_professor_home);
 
+        Intent intent = getIntent();
+        professor = intent.getParcelableExtra("professor");
+
+        String nome = professor.getNome();
+        materia = professor.getMateria();
+
+
+        Toast.makeText(getApplicationContext(), "Informação recebeida apos login usuario: " + professor, Toast.LENGTH_LONG).show();
+
+
         containerForFragment = findViewById(R.id.containerForFragment);
         navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+
+
         //implementing fragment
         HomeFragment homeFragment = new HomeFragment();
-        managerFragment(homeFragment, HOME_FRAGMENT);
+        Bundle bundle = new Bundle();
+        bundle.putString("nome", nome);
+        bundle.putString("materia", materia);
+        homeFragment.setArguments(bundle);
+        changeFragment(homeFragment, HOME_FRAGMENT);
+
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -57,22 +79,26 @@ public class ProfessorHomeActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.ic_home:
                     //  Toast.makeText(getApplicationContext(), "HOME", Toast.LENGTH_SHORT).show();
-                    managerFragment(homeFragment, HOME_FRAGMENT);
+                    changeFragment(homeFragment, HOME_FRAGMENT);
                     return true;
 
                 case R.id.ic_new_task:
                     // Toast.makeText(getApplicationContext(), "NOVA ATIVIDADE", Toast.LENGTH_SHORT).show();
-                    managerFragment(novaAtividadeFragment, NOVA_ATIVIDADE_FRAGMENT);
+                    changeFragment(novaAtividadeFragment, NOVA_ATIVIDADE_FRAGMENT);
                     return true;
 
                 case R.id.ic_tasks_scheduled:
                     //Toast.makeText(getApplicationContext(), "ATIVIDADE AGENDADA", Toast.LENGTH_SHORT).show();
-                    managerFragment(tarefaAgendadaFragment, TAREFA_AGENDADA_FRAGMENT);
+                    Bundle bundle = new Bundle();
+
+                    bundle.putString("materia", materia);
+                    tarefaAgendadaFragment.setArguments(bundle);
+                    changeFragment(tarefaAgendadaFragment, TAREFA_AGENDADA_FRAGMENT);
                     return true;
 
                 case R.id.ic_crono:
                     //Toast.makeText(getApplicationContext(), "CRONOMETRO", Toast.LENGTH_SHORT).show();
-                    managerFragment(cronometroAulaFragment, CRONOMETRO_AULA_FRAGMENT);
+                    changeFragment(cronometroAulaFragment, CRONOMETRO_AULA_FRAGMENT);
                     return true;
             }
 
@@ -80,13 +106,27 @@ public class ProfessorHomeActivity extends AppCompatActivity {
         }
     };
 
-    public void managerFragment(Fragment fragment, String tag) {
+    public  void changeFragment(Fragment fragment , String tagFragmentName){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.containerForFragment, fragment, tag);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+
+        Fragment currentFragment = fragmentManager.getPrimaryNavigationFragment();
+        if(currentFragment != null){
+            fragmentTransaction.detach(currentFragment);
+        }
+        Fragment fragmentTemp = fragmentManager.findFragmentByTag(tagFragmentName);
+        if(fragmentTemp == null){
+            fragmentTemp = fragment;
+            fragmentTransaction.add(R.id.containerForFragment, fragmentTemp, tagFragmentName);
+        }else{
+            fragmentTransaction.attach(fragmentTemp);
+        }
+
+        fragmentTransaction.setPrimaryNavigationFragment(fragmentTemp);
+        fragmentTransaction.setReorderingAllowed(true);
+        fragmentTransaction.commitAllowingStateLoss();
     }
+
 
     @Override
     public void onBackPressed() {

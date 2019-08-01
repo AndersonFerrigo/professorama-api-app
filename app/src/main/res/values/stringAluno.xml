@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-
     <!-- Textos dos botões e EditTexts -->
     <string name="homeAluno"> home</string>
     <string name="tarefasPendesntes"> Tarefas Agendadas</string>
     <string name="calendario">Calendario</string>
     <string name="lembretes">Lembretes</string>
+
+    <string name="informacaoEditarPerfil">Por segurança insira seu RA para editar seu perfil</string>
+    <string name="informacaoDeletarPerfil">Por segurança insira seu RA para deletar seu perfil</string>
+    <string name="informacaoRetornaAlunoLogin">Você será redirecionado para a tela de login.</string>
+    <string name="editarPerfil"> RA somente numero </string>
+
+    <string name="positiveBtn"> Buscar </string>
+    <string name="positiveBtnDeletar"> Deletar </string>
+
+    <string name="cancelBtn"> Cancelar </string>
+
+    <!-- Textos dos botões perfil -->
+    <string name="editAluno"> Editar</string>
+    <string name="deletarAluno"> Deletar</string>
+
+
+    <!-- Textos dos botões tela informação retorna para login -->
+    <string name="confirmaRetornoLogin"> OK</string>
+
 </resources>

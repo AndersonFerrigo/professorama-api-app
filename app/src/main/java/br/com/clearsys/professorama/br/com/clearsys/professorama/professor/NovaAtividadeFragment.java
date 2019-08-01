@@ -14,9 +14,6 @@ import android.widget.Toast;
 import br.com.clearsys.professorama.R;
 import br.com.clearsys.professorama.br.com.clearsys.professorama.br.com.clearsys.professorama.novaAtividade.DescricaoNovaAtividadeFragment;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class NovaAtividadeFragment extends Fragment {
 
     private static final String DESCRICAO_NOVA_ATIVIDADE_FRAGMENT = "DESCRICAO_NOVA_ATIVIDADE_FRAGMENT";

@@ -3,12 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/tarefas_aluno_agendadas"
+    android:background="@drawable/background_professorama"
     tools:context=".br.com.clearsys.professorama.br.com.clearsys.professorama.aluno.FragmentTarefasAluno">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50sp"
+        android:textSize="30sp"
+        android:layout_marginStart="60sp"
+        android:textAlignment="center"
+        android:text="@string/tarefasPendesntes"
+        android:textColor="@color/colorBotaoCadastrar" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_tarefa_aluno"
+        android:layout_marginTop="100sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </FrameLayout>

@@ -1,18 +1,56 @@
 package br.com.clearsys.professorama.model;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import org.w3c.dom.Text;
 
 import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Atividade implements Serializable {
 
+public class Atividade implements Parcelable {
+
+    private int id;
     private String dataInicio;
     private String dataEntrega;
     private String materia;
     private String serie;
     private String descricao;
+
+    public Atividade(){}
+
+    private Atividade(Parcel in) {
+        id = in.readInt();
+        dataInicio = in.readString();
+        dataEntrega = in.readString();
+        materia = in.readString();
+        serie = in.readString();
+        descricao = in.readString();
+
+    }
+    public static final Creator<Atividade> CREATOR = new Creator<Atividade>() {
+        @Override
+        public Atividade createFromParcel(Parcel in) {
+            return new Atividade(in);
+        }
+
+        @Override
+        public Atividade[] newArray(int size) {
+            return new Atividade[size];
+        }
+    };
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getDataInicio() {
         return dataInicio;
@@ -64,4 +102,20 @@ public class Atividade implements Serializable {
                 ", descricao='" + descricao + '\'' +
                 '}';
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(dataInicio);
+        dest.writeString(dataEntrega);
+        dest.writeString(materia);
+        dest.writeString(serie);
+        dest.writeString(descricao);
+    }
+
 }

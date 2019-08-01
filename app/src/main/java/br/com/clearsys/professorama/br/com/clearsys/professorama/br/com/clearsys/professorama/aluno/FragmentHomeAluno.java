@@ -2,23 +2,41 @@ package br.com.clearsys.professorama.br.com.clearsys.professorama.br.com.clearsy
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import br.com.clearsys.professorama.R;
-import br.com.clearsys.professorama.model.Aluno;
 
 public class FragmentHomeAluno extends Fragment {
 
-    Aluno aluno;
     TextView nomeAluno;
     TextView serieAluno;
-
+    String nome;
+    String serie;
     public FragmentHomeAluno() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Bundle bundle ;
+        bundle = getArguments();
+
+        Toast.makeText(getContext(), "Recebido do bundle: " + bundle , Toast.LENGTH_SHORT ).show();
+        if(bundle!=null) {
+            nome = bundle.getString("nome");
+            serie = bundle.getString("serie");
+        }else {
+            Toast.makeText(getContext(), "Bundle nulo", Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
@@ -28,8 +46,35 @@ public class FragmentHomeAluno extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home_aluno, container, false);
 
 
+        nomeAluno = view.findViewById(R.id.nome_aluno);
+        nomeAluno.setText(nome);
+        serieAluno = view.findViewById(R.id.serie_aluno);
+        serieAluno.setText(serie);
+
         return view;
 
     }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putSerializable("nome", nome);
+        outState.putSerializable("serie", serie);
+
+    }
+
+
+    @Override
+    public void onViewStateRestored(Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        if(savedInstanceState!=null){
+            nome = String.valueOf(savedInstanceState.getSerializable(nome));
+            serie = String.valueOf(savedInstanceState.getSerializable(serie));
+
+        }
+
+    }
+
 
 }

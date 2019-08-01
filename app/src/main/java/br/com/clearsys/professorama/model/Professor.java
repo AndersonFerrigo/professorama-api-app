@@ -1,17 +1,47 @@
 package br.com.clearsys.professorama.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.io.Serializable;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Professor implements Serializable {
+public class Professor implements Parcelable {
+
     private int id;
     private String nome;
-    private String perfil;
     private String materia;
     private String usuario;
     private String senha;
+
+    public Professor(){}
+
+    private Professor(Parcel in) {
+        id = in.readInt();
+        nome = in.readString();
+        materia = in.readString();
+        usuario = in.readString();
+        senha = in.readString();
+
+    }
+
+    public static final Creator<Professor> CREATOR = new Creator<Professor>() {
+        @Override
+        public Professor createFromParcel(Parcel in) {
+            return new Professor(in);
+        }
+
+        @Override
+        public Professor[] newArray(int size) {
+            return new Professor[size];
+        }
+    };
+
+
 
     public int getId() {
         return id;
@@ -29,13 +59,6 @@ public class Professor implements Serializable {
         this.nome = nome;
     }
 
-    public String getPerfil() {
-        return perfil;
-    }
-
-    public void setPerfil(String perfil) {
-        this.perfil = perfil;
-    }
 
     public String getMateria() {
         return materia;
@@ -66,11 +89,25 @@ public class Professor implements Serializable {
         return "Professor{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", perfil='" + perfil + '\'' +
                 ", materia='" + materia + '\'' +
                 ", usuario='" + usuario + '\'' +
                 ", senha='" + senha + '\'' +
                 '}';
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(nome);
+        dest.writeString(materia);
+        dest.writeString(usuario);
+        dest.writeString(senha);
+    }
+
 }
 

@@ -5,10 +5,23 @@
     <!-- Textos dos botões e EditTexts -->
     <string name="informacaoTela"> Cadastro Aluno</string>
     <string name="nomeAluno"> Nome completo</string>
-    <string name="perfilAluno">Aluno</string>
+    <string name="perfilAluno">RA somente números</string>
     <string name="serieAluno">Serie</string>
     <string name="userAluno">Usuario</string>
     <string name="passwordAluno">Senha</string>
     <string name="cadastrarAluno">Cadastrar</string>
+
+  <!-- Informações da tela de atualizar aluno  -->
+
+    <!-- Textos dos botões e EditTexts -->
+
+    <string name="informacaoTelaAtualiza"> Atualizar Aluno</string>
+    <string name="recebeIdAluno"> Id Aluno</string>
+    <string name="recebeNomeAluno"> Nome completo</string>
+    <string name="recebeRAAluno">RA Aluno</string>
+    <string name="recebeSerieAluno">Serie</string>
+    <string name="recebeUserAluno">Usuario</string>
+    <string name="recebePasswordAluno">Senha</string>
+    <string name="AtlualizarAluno">Atualizar</string>
 
 </resources>

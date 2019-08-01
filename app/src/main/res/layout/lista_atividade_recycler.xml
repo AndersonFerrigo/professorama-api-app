@@ -1,13 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_atividades_professor"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:longClickable="true"
+    android:contextClickable="true"
+    android:orientation="vertical">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler"
+    <LinearLayout
+        android:id="@+id/linear_itenslistas_background"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="6"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingLeft="12dp">
+
+                    <TextView
+                        android:id="@+id/list_materia"
+                        android:layout_marginTop="1sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/buttonOptions"
+                        android:layout_toStartOf="@+id/buttonOptions"
+                        android:textSize="15sp"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorBotaoCadastrar"
+                        />
+
+                    <TextView
+                        android:id="@+id/list_serie"
+                        android:layout_marginTop="2sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBotaoCadastrar"
+                        />
+
+                    <TextView
+                        android:id="@+id/list_data_entrega"
+                        android:layout_marginTop="3sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBotaoCadastrar"
+                         />
+
+                    <TextView
+                        android:id="@+id/list_descricao"
+                        android:layout_marginTop="4sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorBotaoCadastrar"
+                        />
+
+                <ImageButton
+                    android:src="@drawable/ic_edit_perfil_aluno"
+                    android:layout_height="3sp"
+                    android:layout_width="3sp"
+                    android:layout_marginLeft="20sp"
+
+                    android:id="@+id/edit"/>
+
+                <ImageButton
+                    android:id="@+id/main_line_delete"
+                    android:src="@drawable/ic_delete_perfil_aluno"
+                    android:layout_height="3sp"
+                    android:layout_width="3sp"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+
+            >
 
 
-    </android.support.v7.widget.RecyclerView>
-</android.support.design.widget.CoordinatorLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/background_light" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+ </RelativeLayout>

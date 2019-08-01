@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import br.com.clearsys.professorama.R;
+import br.com.clearsys.professorama.br.com.clearsys.professorama.dialogos.InformaAtividadeCadastrada;
 import br.com.clearsys.professorama.br.com.clearsys.professorama.login.LoginActivity;
 import br.com.clearsys.professorama.br.com.clearsys.professorama.professor.NovaAtividadeFragment;
 import br.com.clearsys.professorama.br.com.clearsys.professorama.professor.ProfessorHomeActivity;
@@ -88,12 +89,11 @@ public class DescricaoNovaAtividadeFragment extends Fragment {
                         atividade = response.body();
                         if(response.isSuccessful()) {
                             Toast.makeText(getActivity(), "Atividade cadastrada com sucesso", Toast.LENGTH_SHORT).show();
-                            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                            Fragment novaTarefaAgendada = new Fragment();
-                            // essa linha é responsável por adicionar o fragment ao stack
-                            fragmentTransaction.addToBackStack(null);
-                            fragmentTransaction.replace(R.id.ic_new_task, novaTarefaAgendada);
-                            fragmentTransaction.commit();
+
+                            InformaAtividadeCadastrada informaAtividadeCadastrada = new InformaAtividadeCadastrada();
+                            informaAtividadeCadastrada.show(getFragmentManager(), "novaAtividadeFragment");
+
+
                         }
 
                     }

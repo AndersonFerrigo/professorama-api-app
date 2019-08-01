@@ -1,23 +1,22 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            package br.com.clearsys.professorama.br.com.clearsys.professorama.login;
 
+import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
-
 import br.com.clearsys.professorama.R;
 import br.com.clearsys.professorama.br.com.clearsys.professorama.br.com.clearsys.professorama.aluno.AlunoHomeActivity;
-import br.com.clearsys.professorama.br.com.clearsys.professorama.br.com.clearsys.professorama.aluno.FragmentHomeAluno;
 import br.com.clearsys.professorama.br.com.clearsys.professorama.novoAluno.CadastroNovoAluno;
 import br.com.clearsys.professorama.br.com.clearsys.professorama.professor.ProfessorHomeActivity;
 import br.com.clearsys.professorama.config.RetrofigConfig;
@@ -29,10 +28,9 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-    ObjectMapper mapper = new ObjectMapper();
     private Aluno aluno ;
-    Professor professor = new Professor();
-    String alunoObjsct;
+    private Professor professor ;
+    private View v;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,74 +53,134 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
         btnAcessar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
+                if(isConnected(getApplicationContext())==true){
+                    if(chcbxAluno.isChecked()==true){
 
-                aluno = new Aluno();
-                aluno.setUsuario(user.getText().toString());
-                aluno.setSenha(password.getText().toString());
+                        aluno = new Aluno();
+                        aluno.setUsuario(user.getText().toString());
+                        aluno.setSenha(password.getText().toString());
 
-                Toast.makeText(getApplicationContext(), "Usuario : " + aluno.getUsuario() + " " + "senha: " + aluno.getSenha()
-                        , Toast.LENGTH_LONG).show();
+                            if ((aluno.getUsuario().equals("")) || (aluno.getSenha().equals(""))) {
+                                Snackbar snackbar = Snackbar
+                                        .make(v, "Os campos usuario e senha devem ser preenchidos", Snackbar.LENGTH_LONG);
+                                snackbar.setActionTextColor(Color.WHITE);
+                                snackbar.show();
 
-                if ((aluno.getUsuario().equals("")) || (aluno.getSenha().equals(""))) {
-                    Toast.makeText(getApplicationContext(), "Os campos devem ser preenchidos", Toast.LENGTH_LONG).show();
+                                }else {
+                                    loginAluno();
+                                }
 
-                } else if (chcbxAluno.isChecked()) {
-                    Call<Aluno> loginAluno  = new RetrofigConfig().getAlunoLoginSistema().logarAluno(aluno.getUsuario(),aluno.getSenha());
-                    loginAluno.enqueue(new Callback<Aluno>() {
-                        @Override
-                        public void onResponse(Call<Aluno> call, Response<Aluno> response) {
-                            aluno = response.body();
+                    } else if (chcbxAluno.isChecked() == false) {
 
-                            Toast.makeText(getApplicationContext(), "Aluno : " + aluno, Toast.LENGTH_LONG).show();
+                        professor = new Professor();
+                        professor.setUsuario(user.getText().toString());
+                        professor.setSenha(password.getText().toString());
 
-                            if (response.isSuccessful()) {
-
-                                Intent intent = new Intent(getApplicationContext(), AlunoHomeActivity.class);
-                                intent.putExtra("aluno", aluno);
-                                startActivity(intent);
-
-                            }
-                        }@Override
-                        public void onFailure(Call<Aluno> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(), "Usuario não encontrado", Toast.LENGTH_LONG).show();
-                        }
-                   });
-
-               } else {
-                    Toast.makeText(getApplicationContext(), "Buscando em professor", Toast.LENGTH_LONG).show();
-
-                    professor.setUsuario(user.getText().toString());
-                    professor.setSenha(password.getText().toString());
-
-                    Call<Professor> loginProfessor = new RetrofigConfig().getProfessorLoginSistema().logarProfessor(professor);
-                    loginProfessor.enqueue(new Callback<Professor>() {
-
-                        @Override
-                        public void onResponse(Call<Professor> loginProfessor, Response<Professor> response) {
-                            professor = response.body();
-
-                            if (response.isSuccessful()) {
-                                Intent intentAcessaSistemaProfessor = new Intent(getApplicationContext(), ProfessorHomeActivity.class);
-                                startActivity(intentAcessaSistemaProfessor);
-                            }
+                        if ((professor.getUsuario().equals("")) || (professor.getSenha().equals(""))) {
+                            Snackbar snackbar = Snackbar
+                                    .make(v, "Os campos usuario e senha devem ser preenchidos", Snackbar.LENGTH_LONG);
+                            snackbar.setActionTextColor(Color.WHITE);
+                            snackbar.show();
+                        } else {
+                            loginProfessor();
                         }
 
-                        @Override
-                        public void onFailure(Call<Professor> call, Throwable t) {
-                            Toast.makeText(getApplicationContext(), "Usuario ou senha não encontrado", Toast.LENGTH_LONG).show();
-                        }
-                    });
+                    }
+
+
+
+                }else{
+                    Snackbar snackbar = Snackbar
+                            .make(v, "Sem acesso a internet, verificar sua conexão ", Snackbar.LENGTH_LONG);
+                    snackbar.setActionTextColor(Color.WHITE);
+                    snackbar.show();
 
                 }
             }
-        });
+
+    @TargetApi(Build.VERSION_CODES.M)
+    public boolean isConnected(Context context){
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager != null){
+            connectivityManager.getActiveNetwork();
+        }
+        //Verifica internet pela WIFI
+        if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnected()) {
+            return true;
+        }
+
+        //Verifica se tem internet móvel
+        if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).isConnected()) {
+            return true;
+        }
+
+
+ return false;
 
     }
 
+
+    public void loginAluno(){
+
+            Call<Aluno> loginAluno = new RetrofigConfig().getAlunoLoginSistema().logarAluno(aluno.getUsuario(), aluno.getSenha());
+            loginAluno.enqueue(new Callback<Aluno>() {
+
+                @Override
+                public void onResponse(Call<Aluno> call, Response<Aluno> response) {
+                    aluno = response.body();
+                    if (response.isSuccessful()) {
+                        Intent intent = new Intent(getApplicationContext(), AlunoHomeActivity.class);
+                        intent.putExtra("aluno", aluno);
+                        startActivity(intent);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Aluno> call, Throwable t) {
+                    Snackbar snackbar = Snackbar
+                            .make(v, "Usuario ou senha incorretos", Snackbar.LENGTH_LONG);
+                    snackbar.setActionTextColor(Color.WHITE);
+                    snackbar.show();
+
+                }
+            });
+    }
+
+    public void loginProfessor(){
+                        Call<Professor> loginProfessor = new RetrofigConfig().getProfessorLoginSistema().logarProfessor(professor.getUsuario(), professor.getSenha());
+                        loginProfessor.enqueue(new Callback<Professor>() {
+
+                            @Override
+                            public void onResponse(Call<Professor> loginProfessor, Response<Professor> response) {
+                                professor = response.body();
+                                if (response.isSuccessful()) {
+
+                                    Intent intentAcessaSistemaProfessor = new Intent(getApplicationContext(), ProfessorHomeActivity.class);
+                                    intentAcessaSistemaProfessor.putExtra("professor", professor);
+                                    startActivity(intentAcessaSistemaProfessor);
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<Professor> call, Throwable t) {
+                                Snackbar snackbar = Snackbar
+                                        .make(v, "Usuario ou senha incorretos", Snackbar.LENGTH_LONG);
+                                snackbar.setActionTextColor(Color.WHITE);
+                                snackbar.show();
+
+
+                            }
+                        });
+
+                    }
+
+
+            });
+
+        }
 }
 
 
