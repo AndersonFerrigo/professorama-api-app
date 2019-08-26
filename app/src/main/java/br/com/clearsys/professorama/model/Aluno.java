@@ -18,7 +18,8 @@ public class Aluno implements Parcelable {
     private String usuario;
     private String senha;
 
-    public Aluno(){}
+    public Aluno() {
+    }
 
     private Aluno(Parcel in) {
         id = in.readInt();

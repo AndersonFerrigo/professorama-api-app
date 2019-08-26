@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/frameDesNovaTarefa"
     android:background="@drawable/background_professorama"
-    tools:context=".br.com.clearsys.professorama.br.com.clearsys.professorama.novaAtividade.DescricaoNovaAtividadeFragment">
-
-    <!-- TODO: Update blank fragment layout -->
+    tools:context=".novaAtividade.DescricaoNovaAtividadeFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,7 +17,6 @@
         android:layout_marginBottom="60dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp">
-
 
         <TextView
             android:id="@+id/tituloFrag"
@@ -30,76 +29,123 @@
             android:textColorHint="@color/colorBotaoCadastrar" />
 
 
-        <EditText
-            android:id="@+id/data_inicio"
-            android:layout_width="140dp"
-            android:layout_marginStart="10dp"
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/EditTextHint"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:textColor="@color/colorBotaoCadastrar"
-            android:textSize="20dp"
-            android:hint="@string/data_inicio"
-            android:backgroundTint="@color/colorBotaoCadastrar"
+            android:layout_marginTop="40sp"
+            android:foregroundTint="@color/colorBotaoCadastrar"
             android:textColorHint="@color/colorBotaoCadastrar"
-            android:textCursorDrawable="@drawable/my_cursor" />
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorBotaoCadastrar">
 
-        <EditText
-            android:id="@+id/data_entrega"
-            android:layout_width="170dp"
+            <EditText
+                android:id="@+id/data_inicio"
+                android:layout_width="140dp"
+                android:layout_marginStart="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:textColor="@color/colorBotaoCadastrar"
+                android:textSize="20dp"
+                android:hint="@string/data_inicio"
+                android:backgroundTint="@color/colorBotaoCadastrar"
+                android:textColorHint="@color/colorBotaoCadastrar"
+                android:textCursorDrawable="@drawable/my_cursor" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/EditTextHint"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="150dp"
-            android:layout_marginTop="50dp"
-            android:hint="@string/data_entrega"
-            android:textSize="20dp"
-            android:textColor="@color/colorBotaoCadastrar"
+            android:layout_marginTop="40sp"
+            android:foregroundTint="@color/colorBotaoCadastrar"
             android:textColorHint="@color/colorBotaoCadastrar"
-            android:backgroundTint="@color/colorBotaoCadastrar"
-            android:textCursorDrawable="@drawable/my_cursor" />
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorBotaoCadastrar">
 
-        <EditText
-            android:id="@+id/materia"
-            android:layout_width="140dp"
+            <EditText
+                android:id="@+id/data_entrega"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="50dp"
+                android:hint="@string/data_entrega"
+                android:textSize="20dp"
+                android:textColor="@color/colorBotaoCadastrar"
+                android:textColorHint="@color/colorBotaoCadastrar"
+                android:backgroundTint="@color/colorBotaoCadastrar"
+                android:textCursorDrawable="@drawable/my_cursor" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/EditTextHint"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="130dp"
-            android:layout_marginStart="10dp"
-            android:hint="@string/materia"
-            android:textSize="20dp"
-            android:textColor="@color/colorBotaoCadastrar"
+            android:layout_marginTop="110sp"
+            android:foregroundTint="@color/colorBotaoCadastrar"
             android:textColorHint="@color/colorBotaoCadastrar"
-            android:backgroundTint="@color/colorBotaoCadastrar"
-            android:textCursorDrawable="@drawable/my_cursor" />
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorBotaoCadastrar">
 
-        <EditText
-            android:id="@+id/serie"
-            android:layout_width="170dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="150dp"
-            android:layout_marginTop="130dp"
-            android:hint="@string/serie"
-            android:textSize="20dp"
-            android:textColor="@color/colorBotaoCadastrar"
-            android:textColorHint="@color/colorBotaoCadastrar"
-            android:backgroundTint="@color/colorBotaoCadastrar"
-            android:textCursorDrawable="@drawable/my_cursor" />
+            <EditText
+                android:id="@+id/materia"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="130dp"
+                android:layout_marginStart="10dp"
+                android:hint="@string/materia"
+                android:textSize="20dp"
+                android:textColor="@color/colorBotaoCadastrar"
+                android:textColorHint="@color/colorBotaoCadastrar"
+                android:backgroundTint="@color/colorBotaoCadastrar"
+                android:textCursorDrawable="@drawable/my_cursor" />
 
-        <EditText
-            android:id="@+id/descricao"
+        </android.support.design.widget.TextInputLayout>
+
+            <Spinner
+                android:id="@+id/spinner_salas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="130sp"
+                android:layout_marginStart="150sp"
+                android:textColor="@color/colorBotaoCadastrar"
+                android:backgroundTint="@color/colorBotaoCadastrar"
+                android:popupBackground="@drawable/background_professorama">
+            </Spinner>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/EditTextHint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="180dp"
-            android:hint="@string/descricao"
-            android:textSize="20dp"
-            android:lines="10"
-            android:textColor="@color/colorBotaoCadastrar"
+            android:layout_marginTop="190sp"
+            android:gravity="center"
+            app:passwordToggleEnabled="true"
+            android:foregroundTint="@color/colorBotaoCadastrar"
             android:textColorHint="@color/colorBotaoCadastrar"
-            android:backgroundTint="@color/colorBotaoCadastrar"
-            android:textCursorDrawable="@drawable/my_cursor" />
+            app:passwordToggleTint="@color/colorBotaoCadastrar">
+
+            <EditText
+                android:id="@+id/descricao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="180dp"
+                android:hint="@string/descricao"
+                android:textSize="20dp"
+                android:lines="10"
+                android:textColor="@color/colorBotaoCadastrar"
+                android:textColorHint="@color/colorBotaoCadastrar"
+                android:backgroundTint="@color/colorBotaoCadastrar"
+                android:textCursorDrawable="@drawable/my_cursor" />
+        </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/btnIncluiNovaAtividade"
             android:layout_width="200dp"
             android:layout_height="60dp"
-            android:layout_marginTop="470dp"
+            android:layout_marginTop="480sp"
             android:layout_marginStart="55dp"
             android:gravity="center"
             android:textAlignment="center"

@@ -11,6 +11,8 @@
     <string name="descricao"> Descrição</string>
 
     <string name="btnIncluirAtividade"> Incluir</string>
+    <string name="btnAtualizarAtividade"> Atualizar</string>
+    <string name="btnCancelaAtualizarAtividade"> Cancelar</string>
 
 
 </resources>

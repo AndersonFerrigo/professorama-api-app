@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frameDesNovaTarefa"
+    android:background="@drawable/background_professorama"
+    tools:context=".novaAtividade.DescricaoNovaAtividadeFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp">
+
+
+        <TextView
+            android:id="@+id/tituloFrag"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textAlignment="center"
+            android:hint="Atividade"
+            android:textSize="20dp"
+            android:textColor="@color/colorBotaoCadastrar"
+            android:textColorHint="@color/colorBotaoCadastrar" />
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/EditTextHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="75sp"
+            android:foregroundTint="@color/colorBotaoCadastrar"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/recebe_data_inicio_atual"
+                android:layout_width="140dp"
+                android:layout_marginStart="10dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorBotaoCadastrar"
+                android:textSize="20dp"
+                android:hint="@string/data_inicio"
+                android:backgroundTint="@color/colorBotaoCadastrar"
+                android:textColorHint="@color/colorBotaoCadastrar"
+                android:textCursorDrawable="@drawable/my_cursor" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/EditTextHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="75sp"
+            android:foregroundTint="@color/colorBotaoCadastrar"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/recebe_data_entrega_atual"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="80dp"
+                android:hint="@string/data_entrega"
+                android:textSize="20dp"
+                android:textColor="@color/colorBotaoCadastrar"
+                android:textColorHint="@color/colorBotaoCadastrar"
+                android:backgroundTint="@color/colorBotaoCadastrar"
+                android:textCursorDrawable="@drawable/my_cursor" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/EditTextHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150sp"
+            android:foregroundTint="@color/colorBotaoCadastrar"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/recebe_materia_atual"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="170sp"
+                android:layout_marginStart="10dp"
+                android:hint="@string/materia"
+                android:textSize="20dp"
+                android:textColor="@color/colorBotaoCadastrar"
+                android:textColorHint="@color/colorBotaoCadastrar"
+                android:backgroundTint="@color/colorBotaoCadastrar"
+                android:textCursorDrawable="@drawable/my_cursor" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/EditTextHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150sp"
+            android:foregroundTint="@color/colorBotaoCadastrar"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/recebe_serie_atual"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="150dp"
+                android:layout_marginTop="170sp"
+                android:hint="@string/serie"
+                android:textSize="20dp"
+                android:textColor="@color/colorBotaoCadastrar"
+                android:textColorHint="@color/colorBotaoCadastrar"
+                android:backgroundTint="@color/colorBotaoCadastrar"
+                android:textCursorDrawable="@drawable/my_cursor" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/EditTextHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="220sp"
+            android:foregroundTint="@color/colorBotaoCadastrar"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/recebe_descricao_atual"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="230dp"
+                android:hint="@string/descricao"
+                android:textSize="20dp"
+                android:lines="10"
+                android:textColor="@color/colorBotaoCadastrar"
+                android:textColorHint="@color/colorBotaoCadastrar"
+                android:backgroundTint="@color/colorBotaoCadastrar"
+                android:textCursorDrawable="@drawable/my_cursor" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_confirma_atual_atividade"
+            android:layout_width="100sp"
+            android:layout_height="60dp"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="510dp"
+            android:background="@android:color/transparent"
+            android:text="@string/fecharAtividade"
+            android:textAlignment="center"
+            android:textColor="@color/colorBotaoCadastrar" />
+    </RelativeLayout>
+
+</FrameLayout>

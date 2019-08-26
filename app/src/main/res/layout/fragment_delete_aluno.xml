@@ -18,8 +18,7 @@
         android:layout_marginEnd="10sp"
         android:text="@string/informacaoEditarPerfil"
         android:textSize="20sp"
-        android:textColor="@color/colorBotaoCadastrar"/>
-
+        android:textColor="@color/colorBotaoCadastrar" />
 
     <EditText
         android:id="@+id/insere_ra"
@@ -34,6 +33,6 @@
         android:foregroundTint="@color/colorBotaoCadastrar"
         android:backgroundTint="@color/colorBotaoCadastrar"
         android:inputType="text"
-        android:textColor="@color/colorBotaoCadastrar"/>
+        android:textColor="@color/colorBotaoCadastrar" />
 
 </android.support.design.widget.CoordinatorLayout>

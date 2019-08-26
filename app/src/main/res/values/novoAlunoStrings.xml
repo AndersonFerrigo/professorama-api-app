@@ -2,8 +2,8 @@
 <resources>
     <!-- Informações da tela de cadastro de aluno  -->
 
-    <!-- Textos dos botões e EditTexts -->
-    <string name="informacaoTela"> Cadastro Aluno</string>
+    <!-- Textos dos botões e hints do editTexts -->
+    <string name="informacaoTela"> Cadastro </string>
     <string name="nomeAluno"> Nome completo</string>
     <string name="perfilAluno">RA somente números</string>
     <string name="serieAluno">Serie</string>
@@ -11,11 +11,11 @@
     <string name="passwordAluno">Senha</string>
     <string name="cadastrarAluno">Cadastrar</string>
 
-  <!-- Informações da tela de atualizar aluno  -->
+    <!-- Informações da tela de atualizar aluno  -->
 
     <!-- Textos dos botões e EditTexts -->
 
-    <string name="informacaoTelaAtualiza"> Atualizar Aluno</string>
+    <string name="informacaoTelaAtualiza"> Atualizar </string>
     <string name="recebeIdAluno"> Id Aluno</string>
     <string name="recebeNomeAluno"> Nome completo</string>
     <string name="recebeRAAluno">RA Aluno</string>

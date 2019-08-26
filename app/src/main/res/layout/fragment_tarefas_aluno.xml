@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="30sp"
+    android:layout_marginBottom="50sp"
+    android:textAlignment="center"
     android:id="@+id/tarefas_aluno_agendadas"
     android:background="@drawable/background_professorama"
-    tools:context=".br.com.clearsys.professorama.br.com.clearsys.professorama.aluno.FragmentTarefasAluno">
-
-    <!-- TODO: Update blank fragment layout -->
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50sp"
-        android:textSize="30sp"
-        android:layout_marginStart="60sp"
-        android:textAlignment="center"
-        android:text="@string/tarefasPendesntes"
-        android:textColor="@color/colorBotaoCadastrar" />
-
+    android:clickable="true">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_tarefa_aluno"
-        android:layout_marginTop="100sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30sp"
+        android:paddingBottom="10sp"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+        tools:listitem="@layout/lista_atividades_aluno">
+    </android.support.v7.widget.RecyclerView>
+
 </FrameLayout>

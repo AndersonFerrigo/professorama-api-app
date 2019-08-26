@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="salas">
+        <item>Escolha sua sala</item>
+        <item>1 TI M1</item>
+        <item>1 TI M2</item>
+        <item>1 TI M3</item>
+        <item>2 TI M1</item>
+        <item>2 TI M2</item>
+        <item>3 TI M1</item>
+        <item>3 TI M2</item>
+        <item>1 TAC M1</item>
+        <item>1 TAC M2</item>
+        <item>1 TAC M3</item>
+        <item>2 TAC M1</item>
+        <item>3 TAC M1</item>
+        <item>4 TAC M1</item>
+        <item>1 TND M1</item>
+        <item>1 TND M2</item>
+        <item>1 TND M3</item>
+        <item>2 TND M1</item>
+        <item>2 TND M2</item>
+        <item>3 TND M1</item>
+        <item>4 TND M1</item>
+        <item>3 TE M1</item>
+        <item>4 TE M1</item>
+        <item>1 TMA M1</item>
+        <item>2 TMA M1</item>
+        <item>3 TMA M1</item>
+        <item>3 TMA M2</item>
+        <item>4 TMA M1</item>
+        <item>1 TED M1</item>
+        <item>2 TED M1</item>
+        <item>2 TED M2</item>
+        <item>3 TED M1</item>
+        <item>4 TED M1</item>
+    </string-array>
+</resources>

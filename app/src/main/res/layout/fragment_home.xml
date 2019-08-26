@@ -6,36 +6,46 @@
     android:layout_height="match_parent"
     android:id="@+id/home_professor_prog"
     android:background="@drawable/background_professorama"
-    tools:context=".br.com.clearsys.professorama.professor.HomeFragment">
+    tools:context=".professor.HomeFragment">
 
-        <TextView
-            android:id="@+id/welcome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100sp"
-            android:text="Seja bem vindo"
-            android:textAlignment="center"
-            android:textSize="30dp"
-            android:textColor="@color/colorBotaoCadastrar"/>
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100sp"
+        android:text="@string/welcome_prof"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:textColor="@color/colorBotaoCadastrar" />
 
-        <TextView
-            android:id="@+id/recebe_nome_professor"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="200sp"
-            android:text="Nome do Professor"
-            android:textSize="30dp"
-            android:textColor="@color/colorBotaoCadastrar"
-            android:textAlignment="center" />
+    <TextView
+        android:id="@+id/titulo_professor"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="220sp"
+        android:text="@string/titulo_prof"
+        android:textSize="30dp"
+        android:textColor="#FFFFFF"
+        android:textAlignment="center" />
 
-        <TextView
-            android:id="@+id/recebe_materia_professor"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="300sp"
-            android:text="Disciplinas"
-            android:textSize="30dp"
-            android:textColor="@color/colorBotaoCadastrar"
-            android:textAlignment="center" />
+    <TextView
+        android:id="@+id/recebe_nome_professor"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="300sp"
+        android:text="@string/nome_prof"
+        android:textSize="30dp"
+        android:textColor="#FFFFFF"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/recebe_materia_professor"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="400sp"
+        android:text="@string/materia_prof"
+        android:textSize="30dp"
+        android:textColor="@color/colorBotaoCadastrar"
+        android:textAlignment="center" />
 
 </FrameLayout>

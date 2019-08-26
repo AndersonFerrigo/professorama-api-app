@@ -6,10 +6,6 @@ import android.os.Parcelable;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import org.w3c.dom.Text;
-
-import java.io.Serializable;
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 
 public class Atividade implements Parcelable {
@@ -21,7 +17,8 @@ public class Atividade implements Parcelable {
     private String serie;
     private String descricao;
 
-    public Atividade(){}
+    public Atividade() {
+    }
 
     private Atividade(Parcel in) {
         id = in.readInt();
@@ -32,6 +29,7 @@ public class Atividade implements Parcelable {
         descricao = in.readString();
 
     }
+
     public static final Creator<Atividade> CREATOR = new Creator<Atividade>() {
         @Override
         public Atividade createFromParcel(Parcel in) {

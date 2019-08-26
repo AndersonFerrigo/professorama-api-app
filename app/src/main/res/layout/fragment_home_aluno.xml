@@ -6,9 +6,8 @@
     android:layout_height="match_parent"
     android:id="@+id/home_aluno_prog"
     android:background="@drawable/background_professorama"
-    tools:context=".br.com.clearsys.professorama.br.com.clearsys.professorama.aluno.FragmentHomeAluno">
+    tools:context=".aluno.FragmentHomeAluno">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/welcome"
         android:layout_width="match_parent"
@@ -17,7 +16,7 @@
         android:text="Seja bem vindo"
         android:textAlignment="center"
         android:textSize="30dp"
-        android:textColor="@color/colorBotaoCadastrar"/>
+        android:textColor="@color/colorBotaoCadastrar" />
 
     <TextView
         android:id="@+id/nome_aluno"
@@ -27,8 +26,7 @@
         android:text="@string/nomeAluno"
         android:textAlignment="center"
         android:textSize="30dp"
-        android:textColor="@color/colorBotaoCadastrar"/>
-
+        android:textColor="@color/colorBotaoCadastrar" />
 
     <TextView
         android:id="@+id/serie_aluno"
@@ -38,6 +36,6 @@
         android:text="@string/serie"
         android:textAlignment="center"
         android:textSize="30dp"
-        android:textColor="@color/colorBotaoCadastrar"/>
+        android:textColor="@color/colorBotaoCadastrar" />
 
 </FrameLayout>

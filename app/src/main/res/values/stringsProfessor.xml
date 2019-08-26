@@ -2,10 +2,17 @@
 <resources>
 
     <!-- Textos dos botões e EditTexts -->
-    <string name="home"> home</string>
-    <string name="novaTarefa"> Nova atividade</string>
+    <string name="home">Home</string>
+    <string name="novaTarefa">Nova Atividade</string>
     <string name="tarefasAgendadas">Atividades Agendadas</string>
     <string name="tarefas">Atividades </string>
+
+    <!-- Textos da home -->
+    <string name="welcome_prof">Seja bem vindo </string>
+    <string name="titulo_prof">Professor </string>
+    <string name="nome_prof">Nome do professor </string>
+    <string name="materia_prof">Matéria do professor </string>
+
 
     <!-- Textos do dialogo informa atividade cadastrada -->
     <string name="informa_atividade_cadastrada">Atividade cadastrada com sucesso</string>

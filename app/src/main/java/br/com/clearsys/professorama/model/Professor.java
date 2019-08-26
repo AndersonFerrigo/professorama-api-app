@@ -6,8 +6,6 @@ import android.os.Parcelable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import java.io.Serializable;
-
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Professor implements Parcelable {
@@ -18,7 +16,8 @@ public class Professor implements Parcelable {
     private String usuario;
     private String senha;
 
-    public Professor(){}
+    public Professor() {
+    }
 
     private Professor(Parcel in) {
         id = in.readInt();
@@ -40,7 +39,6 @@ public class Professor implements Parcelable {
             return new Professor[size];
         }
     };
-
 
 
     public int getId() {

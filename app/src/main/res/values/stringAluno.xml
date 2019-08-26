@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Textos dos botões e EditTexts -->
-    <string name="homeAluno"> home</string>
-    <string name="tarefasPendesntes"> Tarefas Agendadas</string>
-    <string name="calendario">Calendario</string>
+    <string name="homeAluno">Home</string>
+    <string name="tarefasPendesntes"> Tarefas </string>
+    <string name="perfil">Perfil</string>
     <string name="lembretes">Lembretes</string>
 
     <string name="informacaoEditarPerfil">Por segurança insira seu RA para editar seu perfil</string>
@@ -19,6 +19,8 @@
     <!-- Textos dos botões perfil -->
     <string name="editAluno"> Editar</string>
     <string name="deletarAluno"> Deletar</string>
+
+    <string name="fecharAtividade"> Fechar</string>
 
 
     <!-- Textos dos botões tela informação retorna para login -->
