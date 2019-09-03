@@ -13,6 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import br.com.clearsys.professorama.R;
+import br.com.clearsys.professorama.lembretes.CadastraLembreteFragment;
 import br.com.clearsys.professorama.login.LoginActivity;
 import br.com.clearsys.professorama.model.Professor;
 
@@ -29,6 +30,7 @@ public class ProfessorHomeActivity extends AppCompatActivity {
     NovaAtividadeFragment novaAtividadeFragment = new NovaAtividadeFragment();
     TarefaAgendadaFragment tarefaAgendadaFragment = new TarefaAgendadaFragment();
     CronometroAulaFragment cronometroAulaFragment = new CronometroAulaFragment();
+    CadastraLembreteFragment cadastraLembreteFragment = new CadastraLembreteFragment();
 
     public FrameLayout containerForFragment;
 
@@ -36,6 +38,7 @@ public class ProfessorHomeActivity extends AppCompatActivity {
     private static final String NOVA_ATIVIDADE_FRAGMENT = "NOVA_ATIVIDADE_FRAGMENT";
     private static final String TAREFA_AGENDADA_FRAGMENT = "TAREFA_AGENDADA_FRAGMENT";
     private static final String CRONOMETRO_AULA_FRAGMENT = "CRONOMETRO_AULA_FRAGMENT";
+    private static final String LEMBRETE_PROFESSOR_FRAGMENT = "LEMBRETE_PROFESSOR_FRAGMENT";
 
 
     BottomNavigationView navigation;
@@ -90,6 +93,10 @@ public class ProfessorHomeActivity extends AppCompatActivity {
 
                 case R.id.ic_crono:
                     changeFragment(cronometroAulaFragment, CRONOMETRO_AULA_FRAGMENT);
+                    return true;
+
+                case R.id.ic_list_lembretes:
+                 //   changeFragment(lembreteAgendadoProfessorFragment, LEMBRETE_PROFESSOR_FRAGMENT);
                     return true;
             }
             return true;

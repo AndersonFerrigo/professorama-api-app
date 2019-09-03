@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frameCadNovoLembrete"
+    android:background="@drawable/background_professorama"
+    tools:context=".lembretes.AtualizaLembreteFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp">
+
+        <TextView
+            android:id="@+id/tituloFrag"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textAlignment="center"
+            android:hint="@string/tituloTelaLembrete"
+            android:textSize="20dp"
+            android:textColor="@color/colorBotaoCadastrar"
+            android:textColorHint="@color/colorBotaoCadastrar" />
+
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/EditTextHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40sp"
+            android:foregroundTint="@color/colorBotaoCadastrar"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorBotaoCadastrar">
+
+            <EditText
+                android:id="@+id/recebe_data_inicio_lembrete"
+                android:layout_width="match_parent"
+                android:layout_marginStart="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:textColor="@color/colorBotaoCadastrar"
+                android:textSize="20dp"
+                android:hint="@string/data_lembrete"
+                android:backgroundTint="@color/colorBotaoCadastrar"
+                android:textColorHint="@color/colorBotaoCadastrar"
+                android:textCursorDrawable="@drawable/my_cursor" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/EditTextHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="110sp"
+            android:foregroundTint="@color/colorBotaoCadastrar"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorBotaoCadastrar">
+
+            <EditText
+                android:id="@+id/recebe_materie_lembrete"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="130dp"
+                android:layout_marginStart="10dp"
+                android:hint="@string/materia"
+                android:textSize="20dp"
+                android:textColor="@color/colorBotaoCadastrar"
+                android:textColorHint="@color/colorBotaoCadastrar"
+                android:backgroundTint="@color/colorBotaoCadastrar"
+                android:textCursorDrawable="@drawable/my_cursor" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Spinner
+            android:id="@+id/spinner_salas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="130sp"
+            android:layout_marginStart="150sp"
+            android:textColor="@color/colorBotaoCadastrar"
+            android:backgroundTint="@color/colorBotaoCadastrar"
+            android:popupBackground="@drawable/background_professorama">
+        </Spinner>
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/EditTextHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="190sp"
+            android:foregroundTint="@color/colorBotaoCadastrar"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/colorBotaoCadastrar">
+
+            <EditText
+                android:id="@+id/recebe_data_entrega_lembrete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:layout_marginTop="50dp"
+                android:hint="@string/assunto_lembrete"
+                android:textSize="20dp"
+                android:textColor="@color/colorBotaoCadastrar"
+                android:textColorHint="@color/colorBotaoCadastrar"
+                android:backgroundTint="@color/colorBotaoCadastrar"
+                android:textCursorDrawable="@drawable/my_cursor" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/EditTextHint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="240sp"
+            android:gravity="center"
+            app:passwordToggleEnabled="true"
+            android:foregroundTint="@color/colorBotaoCadastrar"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            app:passwordToggleTint="@color/colorBotaoCadastrar">
+
+            <EditText
+                android:id="@+id/recebe_descricao_lembrete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="190dp"
+                android:backgroundTint="@color/colorBotaoCadastrar"
+                android:hint="@string/descricao"
+                android:lines="10"
+                android:textColor="@color/colorBotaoCadastrar"
+                android:textColorHint="@color/colorBotaoCadastrar"
+                android:textCursorDrawable="@drawable/my_cursor"
+                android:textSize="20dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnAtualizaAtividade"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginTop="510sp"
+            android:layout_marginStart="30sp"
+            android:textAlignment="center"
+            android:background="@android:color/transparent"
+            android:text="@string/btnAtualizarLembrete"
+            android:textColor="@color/colorBotaoCadastrar" />
+
+        <Button
+            android:id="@+id/btnCancelarLembrete"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginTop="510sp"
+            android:layout_marginStart="240sp"
+            android:textAlignment="center"
+            android:background="@android:color/transparent"
+            android:text="@string/btnCancelaAtualizarLembrete"
+            android:textColor="@color/colorBotaoCadastrar" />
+    </RelativeLayout>
+
+</FrameLayout>

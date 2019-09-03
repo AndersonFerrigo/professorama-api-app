@@ -4,8 +4,8 @@
     <string name="title_fragment">Cadastro </string>
 
     <string name="professor_id">Professor id</string>
-    <string name="data_inicio"> Data inicio</string>
-    <string name="data_entrega"> Data entrega</string>
+    <string name="data_inicio"> Publicação</string>
+    <string name="data_entrega"> Entrega</string>
     <string name="materia"> Materia</string>
     <string name="serie"> Serie</string>
     <string name="descricao"> Descrição</string>
@@ -13,6 +13,21 @@
     <string name="btnIncluirAtividade"> Incluir</string>
     <string name="btnAtualizarAtividade"> Atualizar</string>
     <string name="btnCancelaAtualizarAtividade"> Cancelar</string>
+
+
+    <!-- Textos da tela de cadastro de lembretes -->
+    <string name="data_lembrete">Data</string>
+    <string name="assunto_lembrete">Assunto</string>
+    <string name="materia_lembrete"> Materia</string>
+    <string name="serie_lembrete"> Serie</string>
+    <string name="descricao_lembrete"> Descrição</string>
+
+    <string name="btnIncluirLembrete"> Incluir</string>
+    <string name="btnCancelarAtividade"> Cancelar</string>
+    <string name="btnCancelarLembrete"> Cancelar</string>
+    <string name="btnAtualizarLembrete"> Atualizar</string>
+    <string name="btnCancelaAtualizarLembrete"> Cancelar</string>
+    <string name="btnCancelaExcluirLembrete"> Deletar</string>
 
 
 </resources>

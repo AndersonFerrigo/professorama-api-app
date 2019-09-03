@@ -22,4 +22,10 @@
         android:icon="@drawable/ic_cronometer"
         android:title="@string/cronometro_fragment"/>
 
+
+    <item
+        android:id="@+id/ic_list_lembretes"
+        android:icon="@drawable/ic_lista_lembretes_professor"
+        android:title="@string/cronometro_fragment"/>
+
 </menu>

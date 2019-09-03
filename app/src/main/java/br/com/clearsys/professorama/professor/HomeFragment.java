@@ -34,8 +34,9 @@ public class HomeFragment extends Fragment {
                 nome = bundle.getString("nome");
                 materia = bundle.getString("materia");
               } else {
-                    Toast.makeText(getContext(), "Não foi possível recuperar dados", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Nao foi possivel recuperar dados", Toast.LENGTH_LONG).show();
                  }
+
     }
 
     @Override

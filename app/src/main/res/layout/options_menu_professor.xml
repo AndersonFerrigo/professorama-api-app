@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250sp"
+    android:layout_height="200sp"
+    android:layout_marginStart="50sp"
+    android:layout_marginEnd="50sp"
+    android:layout_marginTop="150sp"
+    android:layout_marginBottom="150sp"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txt_descreve_tela"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escolha uma opção"
+        android:layout_marginStart="30sp"
+        android:layout_marginTop="20sp"
+        android:textSize="20sp"
+        android:textColor="@color/colorBotaoCadastrar"/>
+
+    <RadioGroup
+        android:id="@+id/myRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60sp"
+        android:layout_below="@+id/txt_descreve_tela"
+        android:checkedButton="@+id/rdo_btn_atividade">
+
+        <RadioButton
+            android:id="@+id/rdo_btn_atividade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30sp"
+            android:buttonTint="@color/colorBotaoCadastrar"
+            android:text="Atividade"
+            android:textColor="@color/colorBotaoCadastrar"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/rdo_btn_lembrete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30sp"
+            android:buttonTint="@color/colorBotaoCadastrar"
+            android:text="Lembrete"
+            android:textColor="@color/colorBotaoCadastrar"
+            android:textColorHint="@color/colorBotaoCadastrar"
+            android:textSize="20sp" />
+    </RadioGroup>
+
+
+
+</android.support.design.widget.CoordinatorLayout>

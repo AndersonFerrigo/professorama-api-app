@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cadastros">
+    <item>Escolha sua opção</item>
+    <item>Atividade</item>
+    <item>Lembrete</item>
+    </string-array>
+
+</resources>

@@ -6,6 +6,7 @@
     <string name="novaTarefa">Nova Atividade</string>
     <string name="tarefasAgendadas">Atividades Agendadas</string>
     <string name="tarefas">Atividades </string>
+    <string name="lembrete">Lembretes </string>
 
     <!-- Textos da home -->
     <string name="welcome_prof">Seja bem vindo </string>
@@ -19,5 +20,10 @@
 
     <!-- Textos da tela de cronometro de aula -->
     <string name="tituloTelaCronometro">Acompanhamento da Aula</string>
+
+    <!-- Textos da tela de cadastro de lembrete -->
+    <string name="tituloTelaLembrete">Lembrete</string>
+
+
 
 </resources>

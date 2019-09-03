@@ -4,9 +4,11 @@ import br.com.clearsys.professorama.services.AtualizaAlunoService;
 import br.com.clearsys.professorama.services.AtualizaAtividadeService;
 import br.com.clearsys.professorama.services.BuscaAlunoPeloUsuario;
 import br.com.clearsys.professorama.services.BuscaAlunoRA;
+import br.com.clearsys.professorama.services.BuscaLembreteProfessorPeloId;
 import br.com.clearsys.professorama.services.BuscarAtividadePeloId;
 import br.com.clearsys.professorama.services.BuscarAtividadePorMateria;
 import br.com.clearsys.professorama.services.BuscarAtividadeSerie;
+import br.com.clearsys.professorama.services.BuscarLembreteProfessorPorMateria;
 import br.com.clearsys.professorama.services.CadastraAtividadeService;
 import br.com.clearsys.professorama.services.CadastrarAlunoService;
 import br.com.clearsys.professorama.services.DeletaAlunoService;
@@ -81,5 +83,13 @@ public class RetrofitConfig {
 
     public DeletaAtividadePeloId deletaAtividadePeloId() {
         return this.retrofit.create(DeletaAtividadePeloId.class);
+    }
+
+    public BuscarLembreteProfessorPorMateria getLembreteProfessorPorMateria(){
+        return  this.retrofit.create(BuscarLembreteProfessorPorMateria.class);
+    }
+
+    public BuscaLembreteProfessorPeloId getLembreteProfessorPorId(){
+        return this.retrofit.create(BuscaLembreteProfessorPeloId.class);
     }
 }

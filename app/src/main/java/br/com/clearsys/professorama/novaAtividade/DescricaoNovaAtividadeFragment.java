@@ -77,9 +77,9 @@ public class DescricaoNovaAtividadeFragment extends Fragment {
         });
 
         txtRecebeDataSelecionada = v.findViewById(R.id.data_inicio);
-        Bundle bundle = this.getArguments();
-        String mydata = bundle.getString("data");
-        txtRecebeDataSelecionada.setText(mydata);
+//        Bundle bundle = this.getArguments();
+  //      String mydata = bundle.getString("data");
+    //    txtRecebeDataSelecionada.setText(mydata);
 
         btnIncluirAtividade = v.findViewById(R.id.btnIncluiNovaAtividade);
         btnIncluirAtividade.setOnClickListener(new View.OnClickListener() {
