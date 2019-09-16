@@ -12,9 +12,6 @@ import android.widget.Chronometer;
 
 import br.com.clearsys.professorama.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class CronometroAulaFragment extends Fragment {
 
     Chronometer chronometerAula;

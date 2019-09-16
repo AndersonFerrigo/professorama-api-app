@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import br.com.clearsys.professorama.R;
 import br.com.clearsys.professorama.aluno.FragmentTarefasAluno;
@@ -32,11 +31,10 @@ public class MostraAtividadeAluno extends Fragment {
     private String descricao;
 
     TextView txtRecebeId;
-    EditText txtRecebeDataInicio;
-    EditText txtRecebeDataEntrega;
-    EditText txtMateriaProfessor;
-    EditText txtSerieAtividade;
-    EditText txtDescricaoAtividade;
+    TextView txtRecebeDataEntrega;
+    TextView txtMateriaProfessor;
+    TextView txtSerieAtividade;
+    TextView txtDescricaoAtividade;
 
     Button btnFechar;
 
@@ -67,7 +65,6 @@ public class MostraAtividadeAluno extends Fragment {
         view = inflater.inflate(R.layout.mostra_atividade_aluno, container, false);
         if (atividade != null) {
             id = atividade.getId();
-            dataInicio = atividade.getDataInicio();
             dataEntrega = atividade.getDataEntrega();
             materia = atividade.getMateria();
             serie = atividade.getSerie();
@@ -79,9 +76,6 @@ public class MostraAtividadeAluno extends Fragment {
                     snackbar.setActionTextColor(Color.WHITE);
                     snackbar.show();
               }
-
-        txtRecebeDataInicio = view.findViewById(R.id.recebe_data_inicio_atual);
-        txtRecebeDataInicio.setText(dataInicio);
 
         txtRecebeDataEntrega = view.findViewById(R.id.recebe_data_entrega_atual);
         txtRecebeDataEntrega.setText(dataEntrega);
@@ -100,7 +94,6 @@ public class MostraAtividadeAluno extends Fragment {
         btnFechar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atividade.setDataInicio(txtRecebeDataInicio.getText().toString());
                 atividade.setDataEntrega(txtRecebeDataEntrega.getText().toString());
                 atividade.setMateria(txtMateriaProfessor.getText().toString());
                 atividade.setSerie(txtSerieAtividade.getText().toString());

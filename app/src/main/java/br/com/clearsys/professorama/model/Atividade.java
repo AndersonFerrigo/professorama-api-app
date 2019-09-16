@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Atividade implements Parcelable {
 
     private int id;
-    private String dataInicio;
+    private String tipoCadastro;
     private String dataEntrega;
     private String materia;
     private String serie;
@@ -22,7 +22,7 @@ public class Atividade implements Parcelable {
 
     private Atividade(Parcel in) {
         id = in.readInt();
-        dataInicio = in.readString();
+        tipoCadastro = in.readString();
         dataEntrega = in.readString();
         materia = in.readString();
         serie = in.readString();
@@ -50,12 +50,12 @@ public class Atividade implements Parcelable {
         this.id = id;
     }
 
-    public String getDataInicio() {
-        return dataInicio;
+    public String getTipoCadastro() {
+        return tipoCadastro;
     }
 
-    public void setDataInicio(String dataInicio) {
-        this.dataInicio = dataInicio;
+    public void setTipoCadastro(String tipoCadastro) {
+        this.tipoCadastro = tipoCadastro;
     }
 
     public String getDataEntrega() {
@@ -93,7 +93,7 @@ public class Atividade implements Parcelable {
     @Override
     public String toString() {
         return "Atividade{" +
-                "dataInicio='" + dataInicio + '\'' +
+                "tipoCadastro='" + tipoCadastro + '\'' +
                 ", dataEntrega='" + dataEntrega + '\'' +
                 ", materia='" + materia + '\'' +
                 ", serie='" + serie + '\'' +
@@ -109,7 +109,7 @@ public class Atividade implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
-        dest.writeString(dataInicio);
+        dest.writeString(tipoCadastro);
         dest.writeString(dataEntrega);
         dest.writeString(materia);
         dest.writeString(serie);

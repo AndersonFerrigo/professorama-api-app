@@ -18,9 +18,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import br.com.clearsys.professorama.R;
-import br.com.clearsys.professorama.professor.TarefaAgendadaFragment;
 import br.com.clearsys.professorama.config.RetrofitConfig;
 import br.com.clearsys.professorama.model.Atividade;
+import br.com.clearsys.professorama.professor.TarefaAgendadaFragment;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -35,13 +35,15 @@ public class AtualizarAtividadeFragment extends Fragment {
 
     private int index;
     private long id;
+    private int indexMateria;
 
     private String itemSelecionado;
-    private String dataInicio;
     private String dataEntrega;
     private String materia;
     private String serie;
     private String descricao;
+    private String materiaSelecionada;
+
 
     TextView txtRecebeId;
     EditText txtRecebeDataInicio;
@@ -78,7 +80,6 @@ public class AtualizarAtividadeFragment extends Fragment {
 
         if (atividade != null) {
             id = atividade.getId();
-            dataInicio = atividade.getDataInicio();
             dataEntrega = atividade.getDataEntrega();
             materia = atividade.getMateria();
             serie = atividade.getSerie();
@@ -87,6 +88,30 @@ public class AtualizarAtividadeFragment extends Fragment {
         } else {
                 Toast.makeText(getContext(), "Intent de atividade nulo ", Toast.LENGTH_LONG).show();
             }
+
+        Spinner spMaterias = view.findViewById(R.id.spinner_materias);
+        ArrayAdapter<CharSequence> materiaAdapter = ArrayAdapter.createFromResource(getContext(),
+                R.array.materias, R.layout.spinner_item);
+        materiaAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+        spMaterias.setAdapter(materiaAdapter);
+        spMaterias.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                int interneIndex = parent.getSelectedItemPosition();
+                indexMateria = interneIndex;
+                String pegaItem = parent.getSelectedItem().toString();
+                materiaSelecionada = pegaItem;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Snackbar snackbar = Snackbar
+                        .make(parent, "Escolha uma sala", Snackbar.LENGTH_LONG);
+                snackbar.setActionTextColor(Color.WHITE);
+                snackbar.show();
+            }
+        });
 
         Spinner spSalas = view.findViewById(R.id.spinner_salas);
         ArrayAdapter<CharSequence> salasAdapter = ArrayAdapter.createFromResource(getContext(),
@@ -113,25 +138,19 @@ public class AtualizarAtividadeFragment extends Fragment {
             }
         });
 
-        txtRecebeDataInicio = view.findViewById(R.id.recebe_data_inicio_atual);
-        txtRecebeDataInicio.setText(dataInicio);
-
         txtRecebeDataEntrega = view.findViewById(R.id.recebe_data_entrega_atual);
         txtRecebeDataEntrega.setText(dataEntrega);
-
-        txtMateriaProfessor = view.findViewById(R.id.recebe_materia_atual);
-        txtMateriaProfessor.setText(materia);
 
         txtDescricaoAtividade = view.findViewById(R.id.recebe_descricao_atual);
         txtDescricaoAtividade.setText(descricao);
 
-        atualiza = view.findViewById(R.id.btn_confirma_atual_atividade);
+        atualiza = view.findViewById(R.id.btn_atualiza_atividade);
         cancelaAtualizar = view.findViewById(R.id.btn_cancela_atual_atividade);
 
         atualiza.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                atividade.setDataInicio(txtRecebeDataInicio.getText().toString());
+                atividade.setTipoCadastro(txtRecebeDataInicio.getText().toString());
                 atividade.setDataEntrega(txtRecebeDataEntrega.getText().toString());
                 atividade.setMateria(txtMateriaProfessor.getText().toString());
 
@@ -143,6 +162,15 @@ public class AtualizarAtividadeFragment extends Fragment {
                     } else {
                         atividade.setSerie(itemSelecionado);
                         }
+
+                if (indexMateria == 0) {
+                    Snackbar snackbar = Snackbar
+                            .make(getView().getRootView(), "Escolha uma materia", Snackbar.LENGTH_LONG);
+                    snackbar.setActionTextColor(Color.WHITE);
+                    snackbar.show();
+                } else {
+                    atividade.setMateria(materiaSelecionada);
+                }
 
                 atividade.setDescricao(txtDescricaoAtividade.getText().toString());
 

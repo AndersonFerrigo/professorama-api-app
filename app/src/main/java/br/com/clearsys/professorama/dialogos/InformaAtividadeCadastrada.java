@@ -15,8 +15,6 @@ import br.com.clearsys.professorama.R;
 import br.com.clearsys.professorama.professor.NovaAtividadeFragment;
 
 public class InformaAtividadeCadastrada extends DialogFragment {
-    NovaAtividadeFragment novaAtividadeFragment = new NovaAtividadeFragment();
-    private static final String NOVA_ATIVIDADE_FRAGMENT = "NOVA_ATIVIDADE_FRAGMENT";
 
     @NonNull
     @Override

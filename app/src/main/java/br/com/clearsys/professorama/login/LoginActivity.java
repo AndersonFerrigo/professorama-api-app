@@ -26,9 +26,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
+
     private Aluno aluno;
     private Professor professor;
-    private View v;
+    View v;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,36 +54,29 @@ public class LoginActivity extends AppCompatActivity {
         btnAcessar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isConnected(getApplicationContext()) == true) {
-                    if (chcbxAluno.isChecked() == true) {
-
+                if (isConnected(getApplicationContext())) {
+                    if (chcbxAluno.isChecked()) {
                         aluno = new Aluno();
                         aluno.setUsuario(user.getText().toString());
                         aluno.setSenha(password.getText().toString());
 
                         if ((aluno.getUsuario().equals("")) || (aluno.getSenha().equals(""))) {
-                            Snackbar snackbar = Snackbar
-                                    .make(v, "Os campos usuario e senha devem ser preenchidos", Snackbar.LENGTH_LONG);
-                            snackbar.setActionTextColor(Color.WHITE);
-                            snackbar.show();
-                        } else {
-                            loginAluno(v);
-                        }
+                            infoCamposNulos();
+                            } else {
+                                loginAluno(v);
+                            }
 
-                    } else if (chcbxAluno.isChecked() == false) {
+                    } else if (!chcbxAluno.isChecked()) {
 
                         professor = new Professor();
                         professor.setUsuario(user.getText().toString());
                         professor.setSenha(password.getText().toString());
 
                         if ((professor.getUsuario().equals("")) || (professor.getSenha().equals(""))) {
-                            Snackbar snackbar = Snackbar
-                                    .make(v, "Os campos usuario e senha devem ser preenchidos", Snackbar.LENGTH_LONG);
-                            snackbar.setActionTextColor(Color.WHITE);
-                            snackbar.show();
-                        } else {
-                            loginProfessor(v);
-                        }
+                            infoCamposNulos();
+                            } else {
+                                loginProfessor(v);
+                            }
                     }
 
                 } else {
@@ -90,12 +84,11 @@ public class LoginActivity extends AppCompatActivity {
                             .make(v, "Sem acesso a internet, verificar sua conexão ", Snackbar.LENGTH_LONG);
                     snackbar.setActionTextColor(Color.WHITE);
                     snackbar.show();
-
                 }
             }
 
-            @TargetApi(Build.VERSION_CODES.M)
-            public boolean isConnected(Context context) {
+            @TargetApi(value = Build.VERSION_CODES.M)
+            boolean isConnected(Context context) {
                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
                 if (connectivityManager != null) {
                     connectivityManager.getActiveNetwork();
@@ -158,7 +151,6 @@ public class LoginActivity extends AppCompatActivity {
                                     .make(v, "Usuario ou senha incorretos", Snackbar.LENGTH_LONG);
                             snackbar.setActionTextColor(Color.WHITE);
                             snackbar.show();
-
                         }
                     }
 
@@ -174,6 +166,14 @@ public class LoginActivity extends AppCompatActivity {
             }
 
         });
+    }
+
+    public void infoCamposNulos(){
+        Snackbar snackbar = Snackbar
+                .make(v, "Os campos usuario e senha devem ser preenchidos", Snackbar.LENGTH_LONG);
+        snackbar.setActionTextColor(Color.WHITE);
+        snackbar.show();
+
     }
 
 }

@@ -16,35 +16,37 @@ import java.util.List;
 
 import br.com.clearsys.professorama.R;
 import br.com.clearsys.professorama.config.RetrofitConfig;
-import br.com.clearsys.professorama.model.Atividade;
+import br.com.clearsys.professorama.model.Lembretes;
 import br.com.clearsys.professorama.novaAtividade.MostraAtividadeAluno;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ListAdapterAluno extends RecyclerView.Adapter<ListAdapterAluno.MyHolder> {
+public class ListAdapterLembreteAluno extends RecyclerView.Adapter<ListAdapterLembreteAluno.MyHolder> {
     Bundle bundle;
-    String atividadeId;
+    String lembreteId;
 
-    private Atividade atividade;
-    private List<Atividade> atividades;
+    private Lembretes lembrete;
+    private List<Lembretes> lembretes;
     private Context context;
 
-    public ListAdapterAluno(List<Atividade> atividade, Context context) {
-        this.atividades = atividade;
+    public ListAdapterLembreteAluno(List<Lembretes> lembrete, Context context) {
+        this.lembretes = lembrete;
         this.context = context;
     }
 
     public class MyHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        public TextView materia;
-        public TextView dataEntrega;
+        public TextView assunto;
+        public TextView data;
+        public TextView serie;
         public TextView descricao;
 
         public MyHolder(View v) {
             super(v);
-            materia = v.findViewById(R.id.list_materia_aluno);
-            dataEntrega = v.findViewById(R.id.list_data_entrega_aluno);
-            descricao = v.findViewById(R.id.list_descricao_aluno);
+            assunto = v.findViewById(R.id.list_assunto_lembrete_aluno);
+            data = v.findViewById(R.id.list_data_lembrete_aluno);
+            serie = v.findViewById(R.id.list_serie_lembrete_aluno);
+            descricao = v.findViewById(R.id.list_descricao_lembrete_aluno);
         }
 
         @Override
@@ -53,42 +55,42 @@ public class ListAdapterAluno extends RecyclerView.Adapter<ListAdapterAluno.MyHo
     }
 
     @Override
-    public ListAdapterAluno.MyHolder onCreateViewHolder(ViewGroup parent,
+    public ListAdapterLembreteAluno.MyHolder onCreateViewHolder(ViewGroup parent,
                                                         int viewType) {
         final View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.lista_atividades_aluno, parent, false);
+                .inflate(R.layout.lista_lembrete_aluno_recycler, parent, false);
 
-        ListAdapterAluno.MyHolder atividadeViewHolder = new ListAdapterAluno.MyHolder(view);
+        ListAdapterLembreteAluno.MyHolder atividadeViewHolder = new ListAdapterLembreteAluno.MyHolder(view);
 
         return atividadeViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(ListAdapterAluno.MyHolder viewHolder, final int position) {
-        atividade = atividades.get(position);
-        ListAdapterAluno.MyHolder atividadeViewHolder = viewHolder;
+    public void onBindViewHolder(ListAdapterLembreteAluno.MyHolder viewHolder, final int position) {
+        lembrete = lembretes.get(position);
+        ListAdapterLembreteAluno.MyHolder lembreteViewHolder = viewHolder;
 
-        atividadeViewHolder.materia.setText(atividade.getMateria());
-        atividadeViewHolder.dataEntrega.setText(atividade.getDataEntrega());
-        atividadeViewHolder.descricao.setText(atividade.getDescricao());
+        lembreteViewHolder.data.setText(lembrete.getData());
+        lembreteViewHolder.serie.setText(lembrete.getSerie());
+        lembreteViewHolder.descricao.setText(lembrete.getDescricao());
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
-                atividadeId = String.valueOf(atividades.get(position).getId());
-                long id = Integer.parseInt(atividadeId);
+                lembreteId = String.valueOf(lembretes.get(position).getId());
+                long id = Integer.parseInt(lembreteId);
 
-                Call<Atividade> buscaAtividadeId = new RetrofitConfig().getAtividadePeloId().buscarAtividadePeloId(id);
-                buscaAtividadeId.enqueue(new Callback<Atividade>() {
+                Call<Lembretes> buscaAtividadeId = new RetrofitConfig().getLembreteProfessorPorId().buscarLembretePeloId(id);
+                buscaAtividadeId.enqueue(new Callback<Lembretes>() {
                     @Override
-                    public void onResponse(Call<Atividade> call, Response<Atividade> response) {
-                        atividade = response.body();
-                        if (atividade != null) {
+                    public void onResponse(Call<Lembretes> call, Response<Lembretes> response) {
+                        lembrete = response.body();
+                        if (lembrete != null) {
                             bundle = new Bundle();
-                            bundle.putParcelable("atividade", atividade);
+                            bundle.putParcelable("lembrete", lembrete);
                         } else {
                             Snackbar snackbar = Snackbar
-                                    .make(v.getRootView(), "Atividade não encontrada", Snackbar.LENGTH_LONG);
+                                    .make(v.getRootView(), "Lembrete não encontrado", Snackbar.LENGTH_LONG);
                             snackbar.setActionTextColor(Color.WHITE);
                             snackbar.show();
                         }
@@ -100,9 +102,9 @@ public class ListAdapterAluno extends RecyclerView.Adapter<ListAdapterAluno.MyHo
                     }
 
                     @Override
-                    public void onFailure(Call<Atividade> call, Throwable t) {
+                    public void onFailure(Call<Lembretes> call, Throwable t) {
                         Snackbar snackbar = Snackbar
-                                .make(v.getRootView(), "Atividade não encontrada", Snackbar.LENGTH_LONG);
+                                .make(v.getRootView(), "Lembrete não encontrado", Snackbar.LENGTH_LONG);
                         snackbar.setActionTextColor(Color.WHITE);
                         snackbar.show();
                     }
@@ -113,7 +115,6 @@ public class ListAdapterAluno extends RecyclerView.Adapter<ListAdapterAluno.MyHo
 
     @Override
     public int getItemCount() {
-        return atividades.size();
+        return lembretes.size();
     }
 }
-

@@ -41,4 +41,8 @@
         <item name="colorControlActivated">@color/colorBotaoCadastrar</item>
         <item name="colorControlHighlight">@color/colorBotaoCadastrar</item>
     </style>
+
+    <style name="MyApp.PopupMenu" parent="android:Widget.Holo.Light.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/background_professorama</item>
+    </style>
 </resources>

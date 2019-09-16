@@ -9,7 +9,6 @@ public class Lembretes implements Parcelable {
     private String materia;
     private String serie;
     private String data;
-    private String assunto;
     private String descricao;
 
     public Lembretes() {
@@ -20,7 +19,6 @@ public class Lembretes implements Parcelable {
         materia = in.readString();
         serie = in.readString();
         data = in.readString();
-        assunto = in.readString();
         descricao = in.readString();
 
     }
@@ -70,14 +68,6 @@ public class Lembretes implements Parcelable {
         this.data = data;
     }
 
-    public String getAssunto() {
-        return assunto;
-    }
-
-    public void setAssunto(String assunto) {
-        this.assunto = assunto;
-    }
-
     public String getDescricao() {
         return descricao;
     }
@@ -93,7 +83,6 @@ public class Lembretes implements Parcelable {
                 ", materia='" + materia + '\'' +
                 ", serie='" + serie + '\'' +
                 ", data='" + data + '\'' +
-                ", assunto='" + assunto + '\'' +
                 ", descricao='" + descricao + '\'' +
                 '}';
     }
@@ -109,7 +98,6 @@ public class Lembretes implements Parcelable {
         dest.writeString(materia);
         dest.writeString(serie);
         dest.writeString(data);
-        dest.writeString(assunto);
         dest.writeString(descricao);
     }
 

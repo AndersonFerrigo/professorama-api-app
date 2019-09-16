@@ -5,9 +5,8 @@ import retrofit2.http.DELETE;
 import retrofit2.http.Headers;
 import retrofit2.http.Path;
 
-public interface DeletaAtividadePeloId {
+public interface DeleteLembretePeloId {
     @Headers("Content-Type:Application/json")
-    @DELETE("api/atividade/deletarAtividade/{id}")
-    Call<Void> deletarAtividade(@Path("id") long id);
-
+    @DELETE("api/lembrete/deletarLembrete/{id}")
+    Call<Void> deletarLembrete(@Path("id") long id);
 }

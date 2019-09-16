@@ -28,12 +28,12 @@ public class AlunoHomeActivity extends AppCompatActivity {
     FragmentHomeAluno homeAluno = new FragmentHomeAluno();
     FragmentCalendarioAluno calendarioAluno = new FragmentCalendarioAluno();
     FragmentTarefasAluno tarefasAluno = new FragmentTarefasAluno();
-    FragmentLembretesAluno lembretesAluno = new FragmentLembretesAluno();
+//    FragmentLembretesAluno lembretesAluno = new FragmentLembretesAluno();
 
     private static final String HOME_ALUNO = "HOME_ALUNO";
     private static final String CALENDARIO_ALUNO = "CALENDARIO_ALUNO";
     private static final String TAREFA_AGENDADA_ALUNO = "TAREFA_AGENDADA";
-    private static final String LEMBRETE_ALUNO = "LEMBRETE_ALUNO";
+  //  private static final String LEMBRETE_ALUNO = "LEMBRETE_ALUNO";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,9 +82,14 @@ public class AlunoHomeActivity extends AppCompatActivity {
                     changeFragment(tarefasAluno, TAREFA_AGENDADA_ALUNO);
                     return true;
 
+                    /*
                 case R.id.ic_lembretes_aluno:
+                    Bundle bundleLembrete = new Bundle();
+                    bundleLembrete.putString("serie", serie);
+                    lembretesAluno.setArguments(bundleLembrete);
                     changeFragment(lembretesAluno, LEMBRETE_ALUNO);
                     return true;
+                */
             }
             return false;
         }

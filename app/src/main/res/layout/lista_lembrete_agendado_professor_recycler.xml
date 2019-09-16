@@ -36,6 +36,17 @@
                     android:textColor="@color/colorBotaoCadastrar" />
 
                 <TextView
+                    android:id="@+id/txt_view_options_lembrete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:text="&#8942;"
+                    android:paddingLeft="350sp"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:textColor="@color/colorBotaoCadastrar"
+                    />
+                <TextView
                     android:id="@+id/list_data_lembrete_professor"
                     android:layout_marginTop="15sp"
                     android:layout_width="match_parent"

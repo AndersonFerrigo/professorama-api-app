@@ -1,5 +1,6 @@
 package br.com.clearsys.professorama.professor;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,10 +14,8 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import br.com.clearsys.professorama.R;
-import br.com.clearsys.professorama.lembretes.CadastraLembreteFragment;
 import br.com.clearsys.professorama.login.LoginActivity;
 import br.com.clearsys.professorama.model.Professor;
-
 
 public class ProfessorHomeActivity extends AppCompatActivity {
 
@@ -30,7 +29,7 @@ public class ProfessorHomeActivity extends AppCompatActivity {
     NovaAtividadeFragment novaAtividadeFragment = new NovaAtividadeFragment();
     TarefaAgendadaFragment tarefaAgendadaFragment = new TarefaAgendadaFragment();
     CronometroAulaFragment cronometroAulaFragment = new CronometroAulaFragment();
-    CadastraLembreteFragment cadastraLembreteFragment = new CadastraLembreteFragment();
+    //LembreteAgendadoProfessorFragment lembreteAgendadoProfessorFragment = new LembreteAgendadoProfessorFragment();
 
     public FrameLayout containerForFragment;
 
@@ -38,7 +37,7 @@ public class ProfessorHomeActivity extends AppCompatActivity {
     private static final String NOVA_ATIVIDADE_FRAGMENT = "NOVA_ATIVIDADE_FRAGMENT";
     private static final String TAREFA_AGENDADA_FRAGMENT = "TAREFA_AGENDADA_FRAGMENT";
     private static final String CRONOMETRO_AULA_FRAGMENT = "CRONOMETRO_AULA_FRAGMENT";
-    private static final String LEMBRETE_PROFESSOR_FRAGMENT = "LEMBRETE_PROFESSOR_FRAGMENT";
+    //private static final String LEMBRETE_PROFESSOR_FRAGMENT = "LEMBRETE_PROFESSOR_FRAGMENT";
 
 
     BottomNavigationView navigation;
@@ -83,10 +82,9 @@ public class ProfessorHomeActivity extends AppCompatActivity {
                     return true;
 
                 case R.id.ic_tasks_scheduled:
-
-                    Bundle bundle = new Bundle();
-                    bundle.putString("materia", materia);
-                    tarefaAgendadaFragment.setArguments(bundle);
+                    Bundle bundleAtividade = new Bundle();
+                    bundleAtividade.putString("materia", materia);
+                    tarefaAgendadaFragment.setArguments(bundleAtividade);
                     changeFragment(tarefaAgendadaFragment, TAREFA_AGENDADA_FRAGMENT);
 
                     return true;
@@ -95,9 +93,14 @@ public class ProfessorHomeActivity extends AppCompatActivity {
                     changeFragment(cronometroAulaFragment, CRONOMETRO_AULA_FRAGMENT);
                     return true;
 
+      /*
                 case R.id.ic_list_lembretes:
-                 //   changeFragment(lembreteAgendadoProfessorFragment, LEMBRETE_PROFESSOR_FRAGMENT);
+                    Bundle bundleLembrete = new Bundle();
+                    bundleLembrete.putString("materia", materia);
+                    lembreteAgendadoProfessorFragment.setArguments(bundleLembrete);
+                    changeFragment(lembreteAgendadoProfessorFragment, LEMBRETE_PROFESSOR_FRAGMENT);
                     return true;
+        */
             }
             return true;
         }

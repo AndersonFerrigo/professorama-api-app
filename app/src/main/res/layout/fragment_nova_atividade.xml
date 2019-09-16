@@ -9,12 +9,12 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textAlignment="center"
+        android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:textSize="20dp"
         android:text="@string/nova_atividade_fragment"
-        android:textColor="@color/colorBotaoCadastrar" />
+        android:textAlignment="center"
+        android:textColor="@color/colorBotaoCadastrar"
+        android:textSize="20dp" />
 
     <CalendarView
         android:id="@+id/novaTarefaCAlendar"

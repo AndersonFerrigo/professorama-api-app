@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,27 +9,23 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="57dp"
         android:layout_marginTop="70sp"
-        android:textSize="30dp"
+        android:text="@string/tituloTelaCronometro"
         android:textAlignment="center"
         android:textColor="@color/colorBotaoCadastrar"
-        android:text="@string/tituloTelaCronometro" />
+        android:textSize="30dp" />
 
     <Chronometer
         android:id="@+id/aulaCronometro"
         android:layout_width="wrap_content"
         android:layout_height="137dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginTop="200sp"
+        android:layout_marginStart="70sp"
         android:textColor="@color/colorBotaoCadastrar"
         android:textSize="80dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <Button
             android:id="@+id/iniciarAula"
@@ -37,14 +33,14 @@
             android:layout_height="40dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="100dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginBottom="230dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="400sp"
             android:background="@android:color/transparent"
             android:elevation="2dp"
-            android:textColor="@color/colorBotaoCadastrar"
             android:gravity="center"
             android:text="Iniciar contagem"
+            android:textColor="@color/colorBotaoCadastrar"
             android:textSize="20sp">
 
         </Button>
@@ -54,13 +50,13 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="100dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginBottom="160dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="450sp"
             android:background="@android:color/transparent"
             android:elevation="2dp"
-            android:textColor="@color/colorBotaoCadastrar"
             android:text="Pausar contagem"
+            android:textColor="@color/colorBotaoCadastrar"
             android:textSize="20sp">
 
         </Button>
@@ -71,15 +67,14 @@
             android:layout_height="40dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="100dp"
-            android:layout_marginEnd="100dp"
-            android:layout_marginBottom="90dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="500sp"
             android:background="@android:color/transparent"
             android:elevation="2dp"
-            android:textColor="@color/colorBotaoCadastrar"
             android:text="Zerar contagem"
+            android:textColor="@color/colorBotaoCadastrar"
             android:textSize="20sp">
 
         </Button>
-    </RelativeLayout>
-</FrameLayout>
+ </android.support.design.widget.CoordinatorLayout>

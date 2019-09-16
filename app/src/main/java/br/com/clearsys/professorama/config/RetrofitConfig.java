@@ -2,17 +2,20 @@ package br.com.clearsys.professorama.config;
 
 import br.com.clearsys.professorama.services.AtualizaAlunoService;
 import br.com.clearsys.professorama.services.AtualizaAtividadeService;
+import br.com.clearsys.professorama.services.AtualizaLembretePeloId;
 import br.com.clearsys.professorama.services.BuscaAlunoPeloUsuario;
 import br.com.clearsys.professorama.services.BuscaAlunoRA;
-import br.com.clearsys.professorama.services.BuscaLembreteProfessorPeloId;
+import br.com.clearsys.professorama.services.BuscaLembretePeloId;
 import br.com.clearsys.professorama.services.BuscarAtividadePeloId;
 import br.com.clearsys.professorama.services.BuscarAtividadePorMateria;
 import br.com.clearsys.professorama.services.BuscarAtividadeSerie;
-import br.com.clearsys.professorama.services.BuscarLembreteProfessorPorMateria;
+import br.com.clearsys.professorama.services.BuscarLembretePorMateria;
 import br.com.clearsys.professorama.services.CadastraAtividadeService;
+import br.com.clearsys.professorama.services.CadastraLembreteService;
 import br.com.clearsys.professorama.services.CadastrarAlunoService;
 import br.com.clearsys.professorama.services.DeletaAlunoService;
 import br.com.clearsys.professorama.services.DeletaAtividadePeloId;
+import br.com.clearsys.professorama.services.DeleteLembretePeloId;
 import br.com.clearsys.professorama.services.LogarAlunoSistemaService;
 import br.com.clearsys.professorama.services.LogarProfessorSistemaService;
 import retrofit2.Retrofit;
@@ -85,11 +88,23 @@ public class RetrofitConfig {
         return this.retrofit.create(DeletaAtividadePeloId.class);
     }
 
-    public BuscarLembreteProfessorPorMateria getLembreteProfessorPorMateria(){
-        return  this.retrofit.create(BuscarLembreteProfessorPorMateria.class);
+    public BuscarLembretePorMateria getLembreteProfessorPorMateria(){
+        return  this.retrofit.create(BuscarLembretePorMateria.class);
     }
 
-    public BuscaLembreteProfessorPeloId getLembreteProfessorPorId(){
-        return this.retrofit.create(BuscaLembreteProfessorPeloId.class);
+    public BuscaLembretePeloId getLembreteProfessorPorId(){
+        return this.retrofit.create(BuscaLembretePeloId.class);
+    }
+
+    public DeleteLembretePeloId deleteLembretePeloId(){
+        return  this.retrofit.create(DeleteLembretePeloId.class);
+    }
+
+    public AtualizaLembretePeloId atualizaLembretePeloId(){
+        return  this.retrofit.create(AtualizaLembretePeloId.class);
+    }
+
+    public CadastraLembreteService cadastraLembreteService(){
+        return this.retrofit.create(CadastraLembreteService.class);
     }
 }

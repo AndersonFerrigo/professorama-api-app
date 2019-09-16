@@ -35,4 +35,21 @@
         <item>3 TED M1</item>
         <item>4 TED M1</item>
     </string-array>
+
+
+    <string-array name="materias">
+        <item>Escolha a materia</item>
+        <item>Portugês</item>
+        <item>Matemática</item>
+        <item>História</item>
+        <item>Química</item>
+        <item>Sociologia OPT</item>
+        <item>Filosofia MTC</item>
+        <item>PI</item>
+        <item>Mont. e Manu. de Comp.</item>
+        <item>Seg. de redes</item>
+        <item>Ling. de Prog.</item>
+        <item>Banco de dados</item>
+        <item>Redes</item>
+    </string-array>
 </resources>
